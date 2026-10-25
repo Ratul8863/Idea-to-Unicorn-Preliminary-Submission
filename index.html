@@ -1,0 +1,1786 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="dark" name="color-scheme"/>
+<title>International AI Builders Congress — Complete Submission Studio</title>
+<style>
+
+:root{
+  --bg:#070d18;--panel:#0b1321;--panel2:#0d1726;--line:#1c2a3d;--line2:#24364f;
+  --text:#e8eef8;--muted:#7f91aa;--cyan:#00aeea;--cyan2:#0a2335;--red:#ff3b43;
+  --green:#23d18b;--amber:#f3b11c;--shadow:0 18px 50px rgba(0,0,0,.28);
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input,select,textarea{font:inherit}.app-shell{display:grid;grid-template-columns:240px minmax(0,1fr);min-height:100vh}
+.sidebar{position:sticky;top:0;height:100vh;border-right:1px solid #121d2c;background:#08101c;padding:22px 16px;display:flex;flex-direction:column;gap:28px}
+.brand{display:flex;align-items:center;gap:10px;padding:4px 7px 18px}.brand-mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#1bdf96,#04b5ef);display:grid;place-items:center;color:#041018;font-size:23px;font-weight:900}.brand strong{display:block;font-size:15px}.brand span{display:block;color:var(--muted);font-size:11px}
+.sidebar nav{display:flex;flex-direction:column;gap:6px}.sidebar nav a{color:#a7b6ca;text-decoration:none;padding:10px 11px;border-radius:9px;display:flex;gap:10px;border:1px solid transparent}.sidebar nav a span{font-size:11px;color:#55718f}.sidebar nav a:hover,.sidebar nav a.active{background:#0d1827;border-color:#1b2d44;color:white}
+.side-note{margin-top:auto;background:#0b1523;border:1px solid #18283c;border-radius:12px;padding:13px}.side-note p{color:var(--muted);margin:5px 0 0;font-size:12px}
+.main{width:100%;max-width:1220px;padding:34px 42px 80px}.topbar{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px}.eyebrow{font-size:11px;letter-spacing:.16em;color:#4dd9ff;font-weight:700}.topbar h1{font-size:27px;margin:5px 0 0}.top-actions{display:flex;gap:9px}
+.btn{appearance:none;border:1px solid #099dd2;background:#078ec0;color:#fff;border-radius:9px;padding:9px 14px;cursor:pointer;font-weight:700}.btn:hover{filter:brightness(1.08)}.btn.ghost{background:#0c1624;border-color:#21324a;color:#c8d5e8}.btn.danger{border-color:#71313a;color:#ff8990}
+.progress-card{border:1px solid #15243a;background:#091321;border-radius:12px;padding:14px 16px;margin-bottom:22px}.progress-card>div:first-child{display:flex;justify-content:space-between;align-items:center}.progress-label{color:#a8b8cd}.progress-track{height:7px;background:#101f31;border-radius:99px;overflow:hidden;margin:9px 0}.progress-track span{display:block;height:100%;width:0;background:linear-gradient(90deg,#00aeea,#26d6a3);transition:width .25s}.progress-card small{color:#667b97}
+.section-block{scroll-margin-top:20px;margin:0 0 26px}.section-title{display:flex;gap:12px;align-items:flex-start;margin:26px 0 13px}.section-icon{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:#1c1417;color:#ff5860;border:1px solid #4b252b;font-size:18px}.section-title.cyan .section-icon,.section-title.blue .section-icon{background:#062338;color:#18bef2;border-color:#0b4560}.section-title.green .section-icon{background:#09271f;color:#28dc9c;border-color:#155a44}.section-title span{font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:#6f86a2}.section-title h2{font-size:20px;margin:1px 0}.section-title p{margin:2px 0;color:var(--muted);font-size:12px}
+.card,.score-card{background:linear-gradient(180deg,#0a121f,#09111d);border:1px solid #19273a;border-radius:13px;padding:22px;margin-bottom:14px;box-shadow:var(--shadow)}.card.tinted{border-color:#0f4260;background:linear-gradient(180deg,#0a1725,#081522)}.card.danger-outline{border-color:#66252c}.card.recommended{border-color:#624c14;background:linear-gradient(180deg,#151509,#111109);display:flex;gap:14px}.rec-icon{width:42px;height:42px;flex:0 0 auto;border-radius:10px;background:#352a05;color:#ffc849;display:grid;place-items:center;font-size:20px}.rec-copy h3{margin:0 0 6px}.rec-copy p{margin:0 0 12px;color:#a79773}
+.card-title{font-size:15px;margin:0 0 15px}.score-card{border-color:#07507a;background:#071a2a;display:flex;justify-content:space-between;align-items:center}.score-card span{display:block;color:#75d7f6;font-size:11px;letter-spacing:.12em}.score-card small{color:#657d98}.score-card strong{font-size:26px;color:#20c6ff;display:flex;align-items:baseline;gap:3px}
+.grid-2,.grid-3{display:grid;gap:14px}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.field{margin-bottom:15px}.field:last-child{margin-bottom:0}.field-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:7px}.field label{font-weight:700;color:#dfe7f3}.helper{margin:-2px 0 8px;color:#7387a4;font-size:11px}.req-badge{background:#ef3037;color:white;font-weight:800;font-size:10px;padding:3px 8px;border-radius:999px;white-space:nowrap}
+input[type=text],input[type=email],select,textarea{width:100%;background:#070e19;border:1px solid #213149;color:#e7eef9;border-radius:8px;outline:none;transition:border-color .15s,box-shadow .15s}
+input[type=text],input[type=email],select{height:42px;padding:0 12px}textarea{padding:11px 12px;resize:vertical;min-height:92px}
+input:focus,select:focus,textarea:focus{border-color:#087daa;box-shadow:0 0 0 3px rgba(0,174,234,.08)}[data-required-wrap="true"].missing input,[data-required-wrap="true"].missing select,[data-required-wrap="true"].missing textarea{border-color:#7d252f}
+select{appearance:auto;color:#cdd8e7}.check-grid{display:grid;gap:7px;margin:8px 0 15px}.check-grid.cols-1{grid-template-columns:1fr}.check-grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.check-grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.check-row{display:flex;align-items:center;gap:9px;min-height:34px;padding:7px 9px;border:1px solid #18283b;background:#08111d;border-radius:6px;color:#aebed1!important;font-weight:500!important;cursor:pointer}.check-row:hover{border-color:#275171}.check-row input{position:absolute;opacity:0;pointer-events:none}.fake-check{width:14px;height:14px;border:1px solid #0d668a;border-radius:3px;display:grid;place-items:center;flex:0 0 14px}.check-row input:checked+.fake-check{background:#089ccf;border-color:#14b7ef}.check-row input:checked+.fake-check:after{content:"✓";font-size:10px;color:#02111a;font-weight:900}.check-row:has(input:checked){background:#092034;border-color:#0b6d96;color:#e7f7fd!important}
+.subhead{border-top:1px solid #132338;padding-top:18px;margin:19px 0 9px}.subhead:first-child{border-top:0;padding-top:0;margin-top:0}.subhead h3{margin:0;color:#e7eef8;font-size:14px}.subhead p{margin:3px 0 0;color:#788da8;font-size:11px}.subnum{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:7px;background:#06263a;color:#20c3f1;margin-right:7px;font-size:11px}
+h4{font-size:12px;color:#9db0c6;margin:14px 0 8px}.pill-wrap{display:flex;flex-wrap:wrap;gap:7px;margin:7px 0 15px}.format-pill input{display:none}.format-pill span{display:block;border:1px solid #24344b;border-radius:999px;padding:5px 10px;color:#90a5bf;font-size:11px;cursor:pointer}.format-pill input:checked+span{border-color:#0d84af;background:#082235;color:#66d7f6}
+.tiny-note{font-size:11px;color:#607894;margin:6px 0 0}.submit-bar{position:sticky;bottom:12px;z-index:20;margin-top:22px;background:rgba(9,17,29,.94);backdrop-filter:blur(14px);border:1px solid #23334a;border-radius:13px;padding:13px 15px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 20px 50px rgba(0,0,0,.48)}.submit-bar strong{display:block}.submit-bar span{display:block;color:#71869f;font-size:11px}.submit-actions{display:flex;gap:8px}
+.toast{position:fixed;right:22px;bottom:22px;background:#0b1927;border:1px solid #1e4058;color:#dfeef8;border-radius:10px;padding:11px 14px;opacity:0;transform:translateY(12px);pointer-events:none;transition:.2s;z-index:99}.toast.show{opacity:1;transform:translateY(0)}
+@media (max-width:980px){.app-shell{grid-template-columns:1fr}.sidebar{position:sticky;z-index:30;height:auto;border-right:0;border-bottom:1px solid #142238;padding:10px 14px;flex-direction:row;align-items:center}.brand{padding:0;margin-right:auto}.brand span,.side-note{display:none}.sidebar nav{flex-direction:row;overflow:auto}.sidebar nav a{white-space:nowrap}.main{padding:24px 18px 70px}.grid-3{grid-template-columns:1fr}.topbar{align-items:flex-start}}
+@media (max-width:720px){.sidebar nav a span{display:none}.topbar{gap:14px}.topbar h1{font-size:23px}.top-actions{display:none}.grid-2,.check-grid.cols-2,.check-grid.cols-3{grid-template-columns:1fr}.card{padding:16px}.submit-bar{bottom:7px;align-items:flex-start;gap:10px}.submit-bar>div:first-child span{display:none}.req-badge{font-size:9px}.main{padding-left:12px;padding-right:12px}}
+
+.link-entry .link-list{margin-bottom:12px}.link-entry .link-unit{border:1px solid #192e42;padding:12px;border-radius:10px;margin-bottom:12px}.prompt-entry{padding:14px;border:1px solid #213149;border-radius:10px;margin-bottom:12px}.ready-row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #1c2a3d;padding:9px 0;text-transform:capitalize}.score-ref{background:#081927;padding:13px;border-radius:9px;border:1px solid #1e3448;display:flex;justify-content:space-between}.sidebar{overflow-y:auto}.sidebar nav a{font-size:12px}
+
+/* V4: screenshot-verified Story states */
+[data-required-wrap="true"] .req-badge {transition:background .15s,color .15s;}
+[data-required-wrap="true"].is-complete .req-badge{background:rgba(5,112,73,.19);border:1px solid #136e51;color:#34dc9e;}
+[data-required-wrap="true"].is-complete input,[data-required-wrap="true"].is-complete textarea{border-color:#20374a;}
+
+/* V5 screenshot-verified Proof / Links & Demo */
+.proof-card{padding:18px 20px}.proof-required{border-color:#80303a}.proof-head{display:flex;justify-content:space-between;gap:12px;align-items:center}.proof-head h3{margin:0;font-size:14px}.link-count{background:#132337;padding:2px 7px;border-radius:99px;font-size:10px;color:#bcd0e5;margin-left:5px}.proof-description{font-size:12px;color:#8599af;background:#0c192a;padding:10px;border-radius:6px;margin:9px 0}.proof-card .link-unit{border:0;padding:0;margin:0 0 8px}.proof-card .link-unit+.link-unit{padding-top:12px;border-top:1px solid #23344a}.link-input-row{display:flex;gap:8px;align-items:center}.link-input-row input[type=url],.proof-card input[type=text]{width:100%;height:37px;background:#070e19;border:1px solid #213149;color:#e5effa;border-radius:6px;padding:9px 12px;min-width:0}.link-input-row input[type=url]:focus,.proof-card input[type=text]:focus{outline:2px solid #0c6f9b}.link-input-row .link-add{white-space:nowrap;padding:8px 13px;font-size:12px}.proof-card .helper{margin:5px 0;color:#66839f}.proof-card .link-unit input[name$="_access_note"]{margin-top:6px}.proof-card .link-unit .remove-link{margin-top:8px;border:1px solid #5e303a;background:transparent;color:#ff8c97;border-radius:5px;padding:5px 8px;cursor:pointer}.proof-card.proof-filled{border-color:#25533d}.proof-card.proof-filled .proof-status{background:#0c3a2b;color:#45db9a}.proof-warning{padding:15px;background:#211b0c;color:#e3af2c;border:1px solid #624912;border-radius:10px;font-size:13px;font-weight:600}.proof-warning small{display:block;color:#9c854e;font-weight:400}.yt-guidance{border:1px solid #573448;background:#14111c;border-radius:9px;margin:10px 0 16px}.yt-guidance summary{cursor:pointer;padding:12px 13px;color:#5ecbff;font-weight:700;list-style:none}.yt-guidance summary:after{content:'⌄';float:right}.yt-guidance[open] summary:after{content:'⌃'}.guidance-inside{padding:0 14px 12px;font-size:12px;color:#bdc7d8}.guidance-inside h4{margin-top:16px;color:#eaf1fa}.guidance-inside ul{padding-left:22px}.guidance-inside li{margin:5px 0}.guide-scroll{overflow:auto}.guide-table{border-collapse:collapse;min-width:650px;width:100%;font-size:11px}.guide-table th,.guide-table td{text-align:left;padding:9px;border:1px solid #2b2636;vertical-align:top}.guide-table th{background:#1e1828;color:#dbe7fa}.guidance-columns{display:grid;grid-template-columns:1fr 1fr;gap:18px}.guidance-columns p{line-height:1.9}.guide-mindset{border-radius:7px;background:#251e2b;padding:12px;margin:12px 0}.guide-mindset p{margin:7px 0}@media(max-width:650px){.guidance-columns{grid-template-columns:1fr}.proof-head{align-items:flex-start}.proof-card{padding:14px}}
+
+/* V6 screenshot-matched AI-native additions */
+.custom-option-row{display:flex;gap:8px;margin:9px 0 18px}.custom-option-row input{flex:1;min-width:0;height:40px;padding:0 12px;background:#070e19;border:1px solid #213149;color:#e7eef9;border-radius:7px}.custom-option-row button{white-space:nowrap}.ai-limit{float:right;font-size:11px;font-weight:500;color:#91a6c1;border:1px solid #23354b;border-radius:99px;padding:2px 8px}.ai-score-note{font-size:11px;color:#708ba7;margin:-6px 2px 16px}.docs-toggle{padding:7px 0;color:#27bcf0;background:none;border:0;cursor:pointer;font-size:12px}.docs-panel{color:#93a6c1;padding:10px;border:1px solid #3d351f;border-radius:7px;font-size:12px}.check-row.custom-added{border-color:#0b7997}.docs-panel[hidden]{display:none}@media(max-width:560px){.custom-option-row{flex-direction:column}.custom-option-row button{align-self:flex-end}}
+
+/* V7: screenshot-verified Data Lifecycle additions */
+.data-custom-row{display:flex;gap:8px;margin:9px 0 17px}
+.data-custom-row input{height:40px;flex:1;min-width:0;background:#070e19;border:1px solid #213149;border-radius:7px;padding:0 12px;color:#e8eef8}
+.data-custom-row button{white-space:nowrap}
+#data-lifecycle .subhead{scroll-margin-top:90px}
+#deploy .tiny-note{line-height:1.6}
+@media(max-width:560px){.data-custom-row{flex-wrap:wrap}.data-custom-row button{width:100%}}
+
+/* V8: screenshot-matched Build Provenance and Prompt Library */
+.provenance-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:7px}.provenance-head h3{font-size:15px;margin:0}.provenance-head .req-badge{margin-left:6px}.access-pill,.provenance-label{border:1px solid #25374b;border-radius:99px;font-size:10px;padding:4px 9px;color:#adbed2;font-weight:600}.provenance-label{vertical-align:middle;background:#152237}.provenance-required{border-color:#752933}.provenance-required.is-complete{border-color:#234d3b}.provenance-required.is-complete .provenance-status{background:#0b4130;color:#36dea0}.provenance-required .field{margin-top:15px}.provenance-required label,#provenance label{display:block;color:#a0b0c6;font-size:12px;margin-bottom:6px}.provenance-extra{border-top:1px solid #1d2d41;margin-top:15px;padding-top:10px}.provenance-extra summary{color:#7892ab;cursor:pointer;font-size:12px}.prompt-empty{text-align:center;color:#8ba0b9;padding:22px 0}.prompt-add{width:100%;text-align:center}.provenance-head .req-badge{display:inline-block}.prompt-empty[hidden]{display:none}
+
+
+/* V9: consistent architecture and audit hierarchy */
+.main{max-width:1240px}.overview-area{scroll-margin-top:20px}.overview-heading{display:flex;justify-content:space-between;align-items:center;margin:7px 0 17px}.overview-heading h2{font-size:22px;margin:4px 0}.overview-heading p{margin:0;color:var(--muted);font-size:12px}.workspace-pill{padding:5px 10px;background:#082338;color:#67c9ed;border:1px solid #10466b;border-radius:50px;font-size:11px}
+.form-tabs{display:flex;gap:7px;flex-wrap:wrap;margin:20px 0 26px;padding:12px;background:#080f1b;border:1px solid #19293e;border-radius:12px;position:sticky;top:0;z-index:18;backdrop-filter:blur(12px)}.form-tabs a{display:block;text-decoration:none;color:#91aaca;padding:8px 11px;font-size:12px;background:#0b1421;border:1px solid #16273b;border-radius:8px;white-space:nowrap}.form-tabs a:hover,.form-tabs a.active{color:#7cdcff;background:#072038;border-color:#086ba1}
+.phase-card{padding:20px}.phase-heading h3{font-size:15px;margin:0}.phase-heading p{font-size:12px;color:var(--muted);margin:4px 0 15px}.phase-item{border:1px solid #203047;border-radius:9px;padding:12px 15px;display:flex;align-items:center;justify-content:space-between;margin:9px 0}.phase-item.current{border-color:#0d6a96;background:#071a2b}.phase-item strong{font-size:12px;display:inline-block;margin-right:8px}.phase-item p{color:#869bb7;font-size:11px;margin:6px 0 0}.phase-item span:not(:last-child){margin-right:6px}.phase-item>span{font-size:12px}.phase-status,.phase-active,.phase-muted{font-size:10px!important;border:1px solid #29435b;border-radius:50px;padding:2px 7px}.phase-status{color:#28c5f4}.phase-active{color:#31dc99;border-color:#145d43}.phase-muted{color:#8190a2}
+.overview-metrics .metric-head{display:flex;justify-content:space-between;gap:12px;margin-bottom:12px}.metric-head h3{font-size:14px;margin:0}.score-overview{display:grid;grid-template-columns:1fr 2fr;gap:24px}.score-overview h2,.surface-overview h2,.audit-top h2{font-size:35px;margin:4px 0}.score-overview h2 small,.surface-overview h2 small,.audit-top h2 small{font-size:14px;color:#8a9cb4}.score-overview p,.surface-overview p,.audit-top p{color:#869ab4;font-size:12px;margin:0}.overview-score-tiles,.rubric-categories{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}.score-ref{display:flex;flex-direction:column;gap:8px;padding:11px 9px;background:#07101d;border:1px solid #243049;border-radius:8px;min-width:0}.score-ref span{font-size:10px;color:#9caac0}.score-ref strong{font-size:18px}.score-ref small{font-size:10px;color:#7b8aa0}.surface-track{height:6px;border-radius:20px;background:#1b2839;margin:12px 0}.surface-track span{display:block;height:100%;width:6.5%;background:#7b8aa0}
+.audit-panel{border-color:#294261}.audit-top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:15px}.audit-percent{text-align:right;color:#28c5f4}.audit-percent strong{display:block;font-size:22px}.audit-percent small{font-size:11px;color:#8394ac}.rubric-categories{margin-top:16px}.rubric-categories a{display:flex;flex-direction:column;gap:8px;border:1px solid #25364a;border-radius:8px;padding:9px;color:#b3c4d9;font-size:11px;text-decoration:none}.rubric-categories b{color:#e8eef8}.audit-legend{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}.audit-legend h3{margin:0}.audit-legend input[type=search]{width:min(100%,360px);background:#070e19;border:1px solid #263b54;border-radius:7px;padding:9px;color:white}.rubric-filter{color:#9eb0c5;font-size:12px;display:flex;align-items:center;gap:5px}.rubric-section{border-top:1px solid #1e2b3d;margin:18px 0 0;padding-top:14px;scroll-margin-top:85px}.rubric-section-title{display:flex;justify-content:space-between;align-items:center;margin:0 0 6px}.rubric-section-title h3{font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:#6f88a8}.rubric-section-title span{color:#7ba2c9;font-size:11px}.rubric-row{display:grid;grid-template-columns:20px minmax(0,1fr) minmax(85px,180px) 55px;gap:9px;align-items:center;padding:7px 4px;border-bottom:1px solid #111e30}.rubric-mark{color:#5e718c}.rubric-mark.complete{color:#26d79b}.rubric-label{font-size:12px}.rubric-label sup{color:#fbbf66}.rubric-hint{font-size:10px;color:#6f849c;text-align:right}.rubric-points{font-size:11px;border:1px solid #1e2c40;border-radius:50px;padding:2px 6px;text-align:center;font-variant-numeric:tabular-nums}.score-caveat{background:#0b1725}.section-block{padding-bottom:8px}.section-title{margin-top:34px}
+@media(max-width:1100px){.score-overview{grid-template-columns:1fr}.overview-score-tiles,.rubric-categories{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:720px){.form-tabs{top:0;flex-wrap:nowrap;overflow-x:auto}.overview-score-tiles,.rubric-categories{grid-template-columns:repeat(2,1fr)}.rubric-row{grid-template-columns:18px minmax(0,1fr) 55px}.rubric-hint{display:none}.phase-item{align-items:flex-start}.phase-item strong{display:block;margin-bottom:8px}.overview-heading{align-items:flex-start}.audit-legend input[type=search]{width:100%}}
+
+</style>
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar">
+<div class="brand">
+<div class="brand-mark">∞</div>
+<div><strong>BuildFest</strong><span>Submission Studio</span></div>
+</div>
+<nav><a class="active" href="#overview"><span>01</span> Overview</a><a class="" href="#story"><span>02</span> Story / Project</a><a class="" href="#proof"><span>03</span> Proof &amp; Demo</a><a class="" href="#ai-native"><span>04</span> AI-Native Build</a><a class="" href="#data-lifecycle"><span>05</span> Data Lifecycle</a><a class="" href="#deploy"><span>06</span> Tunneling</a><a class="" href="#provenance"><span>07</span> Build Provenance</a><a class="" href="#prompt-library"><span>08</span> Prompt Library</a><a class="" href="#team-detail"><span>09</span> Team</a><a class="" href="#judging"><span>10</span> Scoring &amp; Audit</a></nav>
+<div class="side-note">
+<strong>One-page form</strong>
+<p>Offline worksheet combining visible form fields. It is not connected to CloudCamp.</p>
+</div>
+</aside>
+<main class="main">
+<header class="topbar">
+<div>
+<div class="eyebrow">INTERNATIONAL AI BUILDERS CONGRESS</div>
+<h1>Submission Studio</h1>
+</div>
+<div class="top-actions">
+<button class="btn ghost" id="saveDraft" type="button">Save draft</button>
+<button class="btn" id="exportJson" type="button">Export JSON</button>
+</div>
+</header>
+<section class="overview-area" id="overview">
+<div class="overview-heading"><div><span class="eyebrow">INTERNATIONAL AI BUILDERS CONGRESS</span><h2>Submission workspace</h2><p>Single-page preparation worksheet · stored locally, not connected to CloudCamp</p></div><span class="workspace-pill">Local draft</span></div>
+<div class="card phase-card"><div class="phase-heading"><h3>♧ Phase Qualification &amp; Judging</h3><p>Qualification auto-marks after a phase submission on CloudCamp. These are reference statuses from your screenshot, not live status.</p></div>
+<div class="phase-item current"><div><strong>Idea to Unicorn — Preliminary Submission</strong><span class="phase-status">This submission</span><span class="phase-active">Active</span><span class="phase-muted">Judging off</span><span class="phase-muted">Not qualified</span><p>Deadline: Oct 31, 2026, 5:59 PM UTC · Submission: draft</p></div><span>Open</span></div>
+<div class="phase-item"><div><strong>Zero to Launch — Preliminary Submission</strong><span class="phase-active">Active</span><span class="phase-muted">Judging off</span><span class="phase-muted">Not qualified</span><p>Deadline: Nov 15, 2026, 6:00 AM UTC · No submission for this phase</p></div></div>
+<div class="phase-item"><div><strong>Congress Day</strong><span class="phase-status">Upcoming</span><span class="phase-muted">Not qualified</span><p>Deadline: Dec 26, 2026, 2:00 PM UTC · No submission for this phase</p></div></div></div>
+<div class="card overview-metrics"><div class="metric-head"><h3>Submission completeness</h3><strong id="requiredFraction">0/9 required · 0%</strong></div><div class="progress-track"><span id="requiredBar"></span></div><p class="helper">Five Story fields plus Provenance, Tooling, YouTube and Live Demo (nine required groups); local check only.</p></div>
+<div class="card score-overview"><div><span class="eyebrow">PRE-JUDGMENT SCORE · LOCAL ESTIMATE</span><h2><span id="overviewAuditTotal">0</span><small>/425</small></h2><p>Basic evidence, AI detail usage, links, build provenance and team.</p></div><div class="overview-score-tiles" id="overviewScoreTiles"></div></div>
+<div class="card surface-overview"><div><span class="eyebrow">SUBMISSION SCORE · SURFACE</span><h2>14 <small>/ 215</small></h2><p>14/215 was the snapshot's baseline. Live official Surface scoring was not provided; this is a <b>reference snapshot, not a live score</b>.</p></div><div class="surface-track"><span></span></div></div>
+</section><div class="progress-card">
+<div>
+<span class="progress-label">Form completion</span>
+<strong id="completionText">0%</strong>
+</div>
+<div class="progress-track"><span id="progressBar"></span></div>
+<small id="completionMeta">Required fields and optional technical fields are tracked locally.</small>
+</div>
+<nav aria-label="Submission sections" class="form-tabs"><a href="#overview">✧ Overview</a><a href="#story">▤ Story</a><a href="#proof">↗ Proof</a><a href="#ai-native">✦ AI-Native Build</a><a href="#data-lifecycle">⬡ Data Lifecycle</a><a href="#provenance">♧ Build Provenance</a><a href="#prompt-library">▣ Prompt Library</a><a href="#team-detail">♙ Team</a><a href="#judging">◉ Audit</a></nav><form id="submissionForm" novalidate="">
+
+
+
+
+
+<section class="section-block" data-step="1" id="story">
+<div class="section-title">
+<div class="section-icon">✦</div>
+<div><span>Story</span><h2>Story — Project Information</h2><p>Core submission information shown in the Story form.</p></div>
+</div>
+<div class="card">
+<h3 class="card-title">Event &amp; Team</h3>
+<div class="grid-2">
+<div class="field" data-required-wrap="true">
+<div class="field-head"><label for="event">Event *</label><span class="req-badge">⚠ Required — missing</span></div>
+<select id="event" name="event" required=""><option value="">Select event</option><option>International AI Builders Congress</option></select>
+</div>
+<div class="field" data-required-wrap="true">
+<div class="field-head"><label for="team">Team *</label><span class="req-badge">⚠ Required — missing</span></div>
+<select id="team" name="team" required=""><option value="">Select team</option><option>No team found for this event — create team on CloudCamp</option></select>
+</div>
+<div class="field" data-required-wrap="true">
+<div class="field-head"><label for="phase">Phase *</label><span class="req-badge">⚠ Required — missing</span></div>
+<select id="phase" name="phase" required=""><option value="">Select phase</option><option>Phase 1</option><option>Phase 2</option><option>Final Submission</option></select>
+</div>
+</div>
+</div>
+<div class="card">
+<h3 class="card-title">Project Info</h3>
+<p class="helper">Story fields verified against CloudCamp screenshots. Challenge options update dynamically for the selected Domain (11 domains × 5 challenges).</p>
+<div class="field" data-required-wrap="true">
+<div class="field-head"><label for="project_name">Project Name *</label><span class="req-badge">⚠ Required — missing</span></div>
+<input id="project_name" name="project_name" placeholder="Your project name" required="" type="text"/>
+</div>
+<div class="field" data-required-wrap="true">
+<div class="field-head"><label for="elevator_pitch">Elevator Pitch *</label><span class="req-badge">⚠ Required — missing</span></div>
+<input id="elevator_pitch" name="elevator_pitch" placeholder="One-liner pitch" required="" type="text"/>
+</div>
+<div class="field" data-required-wrap="true">
+<div class="field-head"><label for="public_summary">Public Summary *</label><span class="req-badge">⚠ Required — missing</span></div>
+<textarea id="public_summary" name="public_summary" placeholder="Public summary..." required="" rows="4"></textarea>
+</div>
+<div class="grid-2">
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="domain">Domain</label></div>
+<select id="domain" name="domain"><option value="">Select domain</option><option>FoodSphere AI</option><option>HealthSphere AI</option><option>FinSphere AI</option><option>LearnSphere AI</option><option>ClimateSphere AI</option><option>CivicSphere AI</option><option>AgriSphere AI</option><option>IndustrySphere AI</option><option>CommerceSphere AI</option><option>JusticeSphere AI</option><option>InfraSphere AI</option></select>
+</div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="challenge">Challenge</label></div>
+<select id="challenge" name="challenge" disabled><option value="">Select challenge</option></select>
+<p class="helper" id="challengeHint">Select a domain first to see its five challenges.</p>
+</div>
+</div>
+</div>
+<div class="card danger-outline">
+<div class="field" data-required-wrap="true">
+<div class="field-head"><label for="problem_statement">Problem Statement *</label><span class="req-badge">⚠ Required — missing</span></div>
+<p class="helper">What problem does it solve?</p>
+<textarea id="problem_statement" name="problem_statement" placeholder="Enter problem statement..." required="" rows="6"></textarea>
+</div>
+</div>
+<div class="card danger-outline">
+<div class="field" data-required-wrap="true">
+<div class="field-head"><label for="solution_description">Solution Description *</label><span class="req-badge">⚠ Required — missing</span></div>
+<p class="helper">How does your solution work?</p>
+<textarea id="solution_description" name="solution_description" placeholder="Enter solution description..." required="" rows="6"></textarea>
+</div>
+</div>
+</section><section class="section-block" data-step="2" id="proof"><div class="section-title blue"><div class="section-icon">↗</div><div><span>Proof</span><h2>Links &amp; Demo</h2><p>Demo videos, source repository, design prototypes and live-demo URLs.</p></div></div><div class="card proof-card proof-required" data-proof-group="youtube_video"><div class="proof-head"><h3>♧ YouTube Video * <span class="link-count" data-count-for="youtube_video">0</span></h3><span class="req-badge proof-status">⚠ Required — missing</span></div><p class="proof-description">Demo/pitch video — max 3 minutes 1 second (181s). Public or Unlisted only.</p><details class="yt-guidance"><summary>ⓘ YouTube Video Guidance — “Vibe to Production in 180 Seconds”</summary><div class="guidance-inside"><p><strong>Idea to Unicorn Pitch Standard.</strong> The preliminary submission is your first proof of execution — not an idea pitch. Show that your team can move from <em>vibe</em> (concept) to <em>production thinking</em> (working AI system) in a clear, structured 3-minute (180-second) video.</p><p><em>Your goal: Show that your idea is real, your AI approach is valid, and your team can build it.</em></p><h4>🎬 180-Second Breakdown</h4><div class="guide-scroll"><table class="guide-table"><thead><tr><th>Time</th><th>Segment</th><th>What You Must Show</th><th>Key Message</th><th>Evaluators Look For</th></tr></thead><tbody><tr><td>0:00–0:30</td><td>Problem (The Vibe)</td><td>Define problem, target users, urgency (Bangladesh + global)</td><td>“This problem matters”</td><td>Clarity, relevance</td></tr><tr><td>0:30–1:00</td><td>Solution</td><td>Explain your AI-driven solution and differentiation</td><td>“This is how we solve it”</td><td>Simplicity, uniqueness</td></tr><tr><td>1:00–2:00</td><td>Demo / Concept Flow</td><td>Early prototype, mock flow, or system walkthrough</td><td>“This is how it works”</td><td>Feasibility, logic</td></tr><tr><td>2:00–2:30</td><td>AI Approach</td><td>Models, RAG, data, personalization, tools</td><td>“This is real AI thinking”</td><td>Depth, structure</td></tr><tr><td>2:30–3:00</td><td>Impact &amp; Next Step</td><td>Value, potential users, what comes next</td><td>“We can build and scale this”</td><td>Vision, potential</td></tr></tbody></table></div><h4>✅ Mandatory Requirements</h4><ul><li>3-minute (180s) structured video pitch</li><li>Clear problem and user definition</li><li>AI-native approach (LLM / RAG / Graph / ML)</li><li>Basic system flow (input → AI → output)</li><li>Initial demo, prototype, or workflow (early-stage OK)</li><li>Consideration for Bangla / localization</li><li>Defined potential impact (KPIs or expected outcomes)</li></ul><div class="guidance-columns"><div><h4>🏆 What Gets You Selected</h4><p><b>Clarity:</b> simple, easy-to-understand<br/><b>AI Thinking:</b> clear reasoning behind AI usage<br/><b>Feasibility:</b> realistically buildable<br/><b>Structure:</b> logical flow of explanation<br/><b>Energy:</b> confidence and ownership</p></div><div><h4>⚠ Common Mistakes to Avoid</h4><p>Submitting only an idea with no system thinking<br/>No clear AI explanation<br/>Overcomplicating instead of focusing<br/>No demo or workflow visualization<br/>Ignoring real users or real problems</p></div></div><div class="guide-mindset"><b>🎯 Final Mindset</b><p>This is not about being perfect. It is about being <b>clear, real, and buildable</b>. You are not being judged on completion — you are being judged on your ability to execute.</p><em>“Vibe to Production in 180 Seconds — Show us you can build.”</em></div><p class="helper">📌 Upload to YouTube as Public or Unlisted (not Private) so judges can play it. Paste the full URL above.</p></div></details><div class="link-list" data-link-name="youtube_video"><div class="link-unit"><div class="link-input-row"><input aria-label="YouTube Video URL" name="youtube_video" placeholder="https://..." required="" type="url"/><button class="btn link-add add-link" data-target="youtube_video" type="button">＋ Add</button></div><input aria-label="YouTube Video access note" name="youtube_video_access_note" placeholder="Access note (optional) — e.g. how judges can request access" type="text"/></div></div></div><div class="card proof-card" data-proof-group="facebook_video"><div class="proof-head"><h3>♧ Facebook Video <span class="link-count" data-count-for="facebook_video">0</span></h3></div><p class="proof-description">Demo/pitch video hosted on Facebook (videos, watch, reels, fb.watch).</p><div class="link-list" data-link-name="facebook_video"><div class="link-unit"><div class="link-input-row"><input aria-label="Facebook Video URL" name="facebook_video" placeholder="https://..." type="url"/><button class="btn link-add add-link" data-target="facebook_video" type="button">＋ Add</button></div><input aria-label="Facebook Video access note" name="facebook_video_access_note" placeholder="Access note (optional) — e.g. how judges can request access" type="text"/></div></div></div><div class="card proof-card" data-proof-group="github_repository"><div class="proof-head"><h3>♧ GitHub Repository <span class="link-count" data-count-for="github_repository">0</span></h3></div><p class="proof-description">Source code repository</p><div class="link-list" data-link-name="github_repository"><div class="link-unit"><div class="link-input-row"><input aria-label="GitHub Repository URL" name="github_repository" placeholder="https://..." type="url"/><button class="btn link-add add-link" data-target="github_repository" type="button">＋ Add</button></div><p class="helper">Use this if the link is private or needs an access request.</p><input aria-label="GitHub Repository access note" name="github_repository_access_note" placeholder="Access note (optional) — e.g. how judges can request access" type="text"/></div></div></div><div class="card proof-card" data-proof-group="figma_design"><div class="proof-head"><h3>♧ Figma / Design Link <span class="link-count" data-count-for="figma_design">0</span></h3></div><p class="proof-description">Design mockups, prototypes, or UI files (Figma, Canva, Adobe XD, etc.)</p><div class="link-list" data-link-name="figma_design"><div class="link-unit"><div class="link-input-row"><input aria-label="Figma / Design Link URL" name="figma_design" placeholder="https://..." type="url"/><button class="btn link-add add-link" data-target="figma_design" type="button">＋ Add</button></div><p class="helper">Use this if the link is private or needs an access request.</p><input aria-label="Figma / Design Link access note" name="figma_design_access_note" placeholder="Access note (optional) — e.g. how judges can request access" type="text"/></div></div></div><div class="card proof-card proof-required" data-proof-group="demo_live_links"><div class="proof-head"><h3>♧ Demo / Live Links * <span class="link-count" data-count-for="demo_live_links">0</span></h3><span class="req-badge proof-status">⚠ Required — missing</span></div><p class="proof-description">Links to live demo</p><div class="link-list" data-link-name="demo_live_links"><div class="link-unit"><div class="link-input-row"><input aria-label="Demo / Live Links URL" name="demo_live_links" placeholder="https://..." required="" type="url"/><button class="btn link-add add-link" data-target="demo_live_links" type="button">＋ Add</button></div><p class="helper">Use this if the link is private or needs an access request.</p><input aria-label="Demo / Live Links access note" name="demo_live_links_access_note" placeholder="Access note (optional) — e.g. how judges can request access" type="text"/></div></div></div><div class="card proof-card" data-proof-group="other_links"><div class="proof-head"><h3>♧ Other Links <span class="link-count" data-count-for="other_links">0</span></h3></div><p class="proof-description">Any other relevant links</p><div class="link-list" data-link-name="other_links"><div class="link-unit"><div class="link-input-row"><input aria-label="Other Links URL" name="other_links" placeholder="https://..." type="url"/><button class="btn link-add add-link" data-target="other_links" type="button">＋ Add</button></div><p class="helper">Use this if the link is private or needs an access request.</p><input aria-label="Other Links access note" name="other_links_access_note" placeholder="Access note (optional) — e.g. how judges can request access" type="text"/></div></div></div><div class="proof-warning" id="proofWarning">⚠ You cannot submit yet. Please fill in all required fields in the submission form.<small>Missing: Data &amp; AI Provenance, Tooling &amp; IDE, YouTube Video, Demo / Live Links</small></div></section><section class="section-block" data-step="3" id="ai-native">
+<div class="section-title cyan">
+<div class="section-icon">⚡</div>
+<div><span>AI-Native Build</span><h2>AI Detail Usage</h2><p>Describe prompts, models, retrieval, agent systems, local AI and AI-assisted development.</p></div>
+</div>
+<div class="score-card">
+<div><span>AI DEPTH SCORE</span><small>Local estimate only; not the official CloudCamp score</small></div>
+<strong><span id="aiScore">0</span><small>/110</small></strong>
+</div><p class="ai-score-note">Local preview score based on the visible screenshot rules. Not the official CloudCamp judging score.</p>
+<div class="card">
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="prompt_usage">Prompt Usage</label></div>
+<p class="helper">How did you design prompts? Mention any pre-built, chain-of-thought, role prompting, iterative approach, prompt reasoning.</p>
+<textarea id="prompt_usage" name="prompt_usage" placeholder="e.g. We used structured XML prompts with role delimiters, chain-of-thought reasoning for complex queries, and maintained a prompt registry..." rows="4"></textarea>
+</div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="token_optimization">Token Optimization</label></div>
+<p class="helper">Strategies to reduce cost &amp; latency: caching, summarization, context trimming, routing, batching, structured outputs.</p>
+<textarea id="token_optimization" name="token_optimization" placeholder="e.g. We used prompt caching for system instructions, summarized chat history beyond N turns, routed simple queries to a smaller model..." rows="4"></textarea>
+</div>
+</div>
+<div class="card tinted">
+<h3 class="card-title">Token Optimization Tools &amp; Methods</h3>
+<p class="helper">Tools / techniques used to cut tokens, latency, or cost.</p>
+<div class="check-grid cols-2"><label class="check-row">
+<input name="token_methods" type="checkbox" value="Graphify — graph-based prompt compression"/>
+<span class="fake-check"></span>
+<span>Graphify — graph-based prompt compression</span>
+</label>
+<label class="check-row">
+<input name="token_methods" type="checkbox" value="Caveman — token-slimming prompt compressor"/>
+<span class="fake-check"></span>
+<span>Caveman — token-slimming prompt compressor</span>
+</label>
+<label class="check-row">
+<input name="token_methods" type="checkbox" value="LongLLMLingua / LLMLingua-2"/>
+<span class="fake-check"></span>
+<span>LongLLMLingua / LLMLingua-2</span>
+</label>
+<label class="check-row"><input name="token_methods" type="checkbox" value="Codeburn — code-aware prompt optimizer"/><span class="fake-check"></span><span>Codeburn — code-aware prompt optimizer</span></label>
+<label class="check-row">
+<input name="token_methods" type="checkbox" value="LLMLingua (Microsoft) — prompt compression"/>
+<span class="fake-check"></span>
+<span>LLMLingua (Microsoft) — prompt compression</span>
+</label>
+<label class="check-row">
+<input name="token_methods" type="checkbox" value="OpenAI Prompt Caching"/>
+<span class="fake-check"></span>
+<span>OpenAI Prompt Caching</span>
+</label>
+<label class="check-row">
+<input name="token_methods" type="checkbox" value="Anthropic Prompt Caching"/>
+<span class="fake-check"></span>
+<span>Anthropic Prompt Caching</span>
+</label>
+<label class="check-row">
+<input name="token_methods" type="checkbox" value="DeepSeek Context Caching"/>
+<span class="fake-check"></span>
+<span>DeepSeek Context Caching</span>
+</label>
+<label class="check-row">
+<input name="token_methods" type="checkbox" value="Gemini Context Caching"/>
+<span class="fake-check"></span>
+<span>Gemini Context Caching</span>
+</label>
+<label class="check-row"><input name="token_methods" type="checkbox" value="Semantic chunk dedup"/><span class="fake-check"></span><span>Semantic chunk dedup</span></label>
+<label class="check-row">
+<input name="token_methods" type="checkbox" value="Sliding-window / context trimming"/>
+<span class="fake-check"></span>
+<span>Sliding-window / context trimming</span>
+</label>
+<label class="check-row">
+<input name="token_methods" type="checkbox" value="Rolling summary memory"/>
+<span class="fake-check"></span>
+<span>Rolling summary memory</span>
+</label>
+<label class="check-row">
+<input name="token_methods" type="checkbox" value="Structured outputs / JSON mode"/>
+<span class="fake-check"></span>
+<span>Structured outputs / JSON mode</span>
+</label>
+<label class="check-row">
+<input name="token_methods" type="checkbox" value="Cheap-model routing"/>
+<span class="fake-check"></span>
+<span>Cheap-model routing</span>
+</label>
+<label class="check-row">
+<input name="token_methods" type="checkbox" value="Request batching"/>
+<span class="fake-check"></span>
+<span>Request batching</span>
+</label>
+<label class="check-row">
+<input name="token_methods" type="checkbox" value="KV-cache reuse"/>
+<span class="fake-check"></span>
+<span>KV-cache reuse</span>
+</label>
+<label class="check-row">
+<input name="token_methods" type="checkbox" value="Speculative decoding"/>
+<span class="fake-check"></span>
+<span>Speculative decoding</span>
+</label></div><div class="custom-option-row" data-custom-group="token_methods"><input aria-label="Token optimization custom entry" placeholder="Add another token-optimization tool..." type="text"/><button class="btn ghost custom-add" data-group="token_methods" type="button">+ Add</button></div>
+</div>
+<div class="card">
+<h3 class="card-title">LLMs / Models Used<span class="ai-limit">0 / 15</span></h3>
+<p class="helper">Select all models used. Add others not in the list. Each model adds +3 (max 15).</p>
+<div class="check-grid cols-3"><label class="check-row">
+<input name="models_used" type="checkbox" value="Claude"/>
+<span class="fake-check"></span>
+<span>Claude</span>
+</label>
+<label class="check-row">
+<input name="models_used" type="checkbox" value="ChatGPT"/>
+<span class="fake-check"></span>
+<span>ChatGPT</span>
+</label>
+<label class="check-row">
+<input name="models_used" type="checkbox" value="Gemini"/>
+<span class="fake-check"></span>
+<span>Gemini</span>
+</label>
+<label class="check-row">
+<input name="models_used" type="checkbox" value="Kimi"/>
+<span class="fake-check"></span>
+<span>Kimi</span>
+</label>
+<label class="check-row">
+<input name="models_used" type="checkbox" value="DeepSeek"/>
+<span class="fake-check"></span>
+<span>DeepSeek</span>
+</label>
+<label class="check-row">
+<input name="models_used" type="checkbox" value="Llama"/>
+<span class="fake-check"></span>
+<span>Llama</span>
+</label>
+<label class="check-row">
+<input name="models_used" type="checkbox" value="Mistral"/>
+<span class="fake-check"></span>
+<span>Mistral</span>
+</label>
+<label class="check-row">
+<input name="models_used" type="checkbox" value="Grok"/>
+<span class="fake-check"></span>
+<span>Grok</span>
+</label>
+<label class="check-row">
+<input name="models_used" type="checkbox" value="Qwen"/>
+<span class="fake-check"></span>
+<span>Qwen</span>
+</label></div><div class="custom-option-row" data-custom-group="models_used"><input aria-label="Model custom entry" placeholder="Add another model (e.g. Phi-3, Cohere Command R)..." type="text"/><button class="btn ghost custom-add" data-group="models_used" type="button">+ Add</button></div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="model_reason">How &amp; why did you use these LLMs?</label></div>
+<textarea id="model_reason" name="model_reason" placeholder="e.g. Claude Sonnet for code generation &amp; reasoning, Gemini Flash for cheap summarization, DeepSeek for math-heavy queries..." rows="4"></textarea>
+</div>
+</div>
+<div class="card">
+<h3 class="card-title">Retrieval &amp; RAG<span class="ai-limit">0 / 12</span></h3>
+<p class="helper">Select retrieval techniques used. Each adds to AI depth.</p>
+<div class="check-grid cols-2"><label class="check-row">
+<input name="rag_methods" type="checkbox" value="Naive RAG (chunk + embed + retrieve)"/>
+<span class="fake-check"></span>
+<span>Naive RAG (chunk + embed + retrieve)</span>
+</label>
+<label class="check-row">
+<input name="rag_methods" type="checkbox" value="Vector Database (Pinecone, Weaviate, pgvector, etc.)"/>
+<span class="fake-check"></span>
+<span>Vector Database (Pinecone, Weaviate, pgvector, etc.)</span>
+</label>
+<label class="check-row">
+<input name="rag_methods" type="checkbox" value="Contextual RAG (Anthropic-style, +context per chunk)"/>
+<span class="fake-check"></span>
+<span>Contextual RAG (Anthropic-style, +context per chunk)</span>
+</label>
+<label class="check-row">
+<input name="rag_methods" type="checkbox" value="Variable / Semantic Chunking"/>
+<span class="fake-check"></span>
+<span>Variable / Semantic Chunking</span>
+</label>
+<label class="check-row">
+<input name="rag_methods" type="checkbox" value="Late Chunking (embed long → split)"/>
+<span class="fake-check"></span>
+<span>Late Chunking (embed long → split)</span>
+</label>
+<label class="check-row">
+<input name="rag_methods" type="checkbox" value="Graph RAG"/>
+<span class="fake-check"></span>
+<span>Graph RAG</span>
+</label>
+<label class="check-row">
+<input name="rag_methods" type="checkbox" value="Knowledge Graph / Other Graph Methods"/>
+<span class="fake-check"></span>
+<span>Knowledge Graph / Other Graph Methods</span>
+</label>
+<label class="check-row">
+<input name="rag_methods" type="checkbox" value="Hybrid Search (Keyword + Vector)"/>
+<span class="fake-check"></span>
+<span>Hybrid Search (Keyword + Vector)</span>
+</label>
+<label class="check-row">
+<input name="rag_methods" type="checkbox" value="Rerankers (Cohere, BGE, etc.)"/>
+<span class="fake-check"></span>
+<span>Rerankers (Cohere, BGE, etc.)</span>
+</label>
+<label class="check-row">
+<input name="rag_methods" type="checkbox" value="Agentic RAG / Multi-step Retrieval"/>
+<span class="fake-check"></span>
+<span>Agentic RAG / Multi-step Retrieval</span>
+</label>
+<label class="check-row">
+<input name="rag_methods" type="checkbox" value="Self-RAG (self-reflective retrieval)"/>
+<span class="fake-check"></span>
+<span>Self-RAG (self-reflective retrieval)</span>
+</label>
+<label class="check-row">
+<input name="rag_methods" type="checkbox" value="Corrective RAG (CRAG)"/>
+<span class="fake-check"></span>
+<span>Corrective RAG (CRAG)</span>
+</label>
+<label class="check-row">
+<input name="rag_methods" type="checkbox" value="Query Rewriting / HyDE"/>
+<span class="fake-check"></span>
+<span>Query Rewriting / HyDE</span>
+</label></div><div class="custom-option-row" data-custom-group="rag_methods"><input aria-label="Retrieval technique custom entry" placeholder="Add another retrieval technique..." type="text"/><button class="btn ghost custom-add" data-group="rag_methods" type="button">+ Add</button></div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="rag_architecture">RAG architecture details (data sources, chunking, embeddings, index)</label></div>
+<textarea id="rag_architecture" name="rag_architecture" placeholder="e.g. pgvector with text-embedding model, semantic chunking at 512 tokens, hybrid BM25 + vector with Cohere reranker..." rows="4"></textarea>
+</div>
+</div>
+<div class="card">
+<h3 class="card-title">MCP (Model Context Protocol) Usage<span class="ai-limit">0 / 20</span></h3>
+<p class="helper">Use this when your build uses MCP servers/clients to connect AI to tools or resources.</p>
+<div class="check-grid cols-1"><label class="check-row">
+<input name="mcp_usage" type="checkbox" value="We built and/or used MCP servers / clients in this build"/>
+<span class="fake-check"></span>
+<span>We built and/or used MCP servers / clients in this build</span>
+</label></div>
+</div>
+<div class="card">
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="open_source_ai">Open Source Tools &amp; Libraries</label></div>
+<p class="helper">List open-source packages you leveraged (LangChain, LiteLLM, Ollama, etc.) and how each contributed.</p>
+<textarea id="open_source_ai" name="open_source_ai" placeholder="e.g. LangGraph for agent orchestration, Ollama for local Llama inference, Unstructured.io for document parsing..." rows="4"></textarea>
+</div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="agent_orchestration">Agent Frameworks &amp; Orchestration</label></div>
+<p class="helper">Multi-agent setup, tool calling, planners, handoffs, coordination.</p>
+<textarea id="agent_orchestration" name="agent_orchestration" placeholder="e.g. CrewAI with 3 specialized agents (researcher, writer, critic) coordinated via a supervisor pattern..." rows="4"></textarea>
+</div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="finetuning">Fine-tuning / Adaptation</label></div>
+<p class="helper">LoRA, QLoRA, SFT, distillation, adapters, instruction tuning or embedding fine-tuning.</p>
+<textarea id="finetuning" name="finetuning" placeholder="e.g. LoRA fine-tuned Llama on a domain Q&amp;A dataset; prompt tuning for terminology..." rows="4"></textarea>
+</div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="evaluation">Evaluation &amp; Quality Measurement</label></div>
+<p class="helper">How did you measure AI output quality? LLM-as-judge, human evals, RAGAS, benchmarks, regression sets.</p>
+<textarea id="evaluation" name="evaluation" placeholder="e.g. RAGAS for retrieval faithfulness, GPT-4 as judge, regression test set on each prompt change..." rows="4"></textarea>
+</div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="guardrails">Guardrails, Safety &amp; Privacy</label></div>
+<p class="helper">AI validation, content moderation, jailbreak protection, privacy, hallucination mitigation.</p>
+<textarea id="guardrails" name="guardrails" placeholder="e.g. Input PII scrubbing with Presidio, output schema validation with Zod, refusal patterns for out-of-scope queries..." rows="4"></textarea>
+</div>
+</div>
+<div class="card tinted">
+<h3 class="card-title">Frontend AI / Visual App Builders</h3>
+<p class="helper">AI-driven UI/app builders used to ship the front end.</p>
+<div class="check-grid cols-2"><label class="check-row">
+<input name="frontend_ai_builders" type="checkbox" value="Lovable"/>
+<span class="fake-check"></span>
+<span>Lovable</span>
+</label>
+<label class="check-row">
+<input name="frontend_ai_builders" type="checkbox" value="v0 (Vercel)"/>
+<span class="fake-check"></span>
+<span>v0 (Vercel)</span>
+</label>
+<label class="check-row">
+<input name="frontend_ai_builders" type="checkbox" value="Bolt.new"/>
+<span class="fake-check"></span>
+<span>Bolt.new</span>
+</label>
+<label class="check-row">
+<input name="frontend_ai_builders" type="checkbox" value="Cursor Composer / Agent"/>
+<span class="fake-check"></span>
+<span>Cursor Composer / Agent</span>
+</label>
+<label class="check-row">
+<input name="frontend_ai_builders" type="checkbox" value="Claude Artifacts"/>
+<span class="fake-check"></span>
+<span>Claude Artifacts</span>
+</label>
+<label class="check-row">
+<input name="frontend_ai_builders" type="checkbox" value="Gemini Canvas"/>
+<span class="fake-check"></span>
+<span>Gemini Canvas</span>
+</label>
+<label class="check-row">
+<input name="frontend_ai_builders" type="checkbox" value="ChatGPT Canvas"/>
+<span class="fake-check"></span>
+<span>ChatGPT Canvas</span>
+</label>
+<label class="check-row">
+<input name="frontend_ai_builders" type="checkbox" value="Windsurf"/>
+<span class="fake-check"></span>
+<span>Windsurf</span>
+</label>
+<label class="check-row">
+<input name="frontend_ai_builders" type="checkbox" value="Replit Agent"/>
+<span class="fake-check"></span>
+<span>Replit Agent</span>
+</label>
+<label class="check-row">
+<input name="frontend_ai_builders" type="checkbox" value="Framer AI"/>
+<span class="fake-check"></span>
+<span>Framer AI</span>
+</label></div><div class="custom-option-row" data-custom-group="frontend_ai_builders"><input aria-label="AI builder custom entry" placeholder="Add another visual AI builder..." type="text"/><button class="btn ghost custom-add" data-group="frontend_ai_builders" type="button">+ Add</button></div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="frontend_ai_notes">How did you use these tools?</label></div>
+<textarea id="frontend_ai_notes" name="frontend_ai_notes" placeholder="What % of UI was AI-built? Any custom workflows or edits?" rows="4"></textarea>
+</div>
+</div>
+<div class="card tinted">
+<h3 class="card-title">Workflow Automation</h3>
+<p class="helper">Automation platforms used to wire AI or data workflows.</p>
+<div class="check-grid cols-2"><label class="check-row">
+<input name="workflow_automation" type="checkbox" value="n8n (self-hosted workflow automation)"/>
+<span class="fake-check"></span>
+<span>n8n (self-hosted workflow automation)</span>
+</label>
+<label class="check-row">
+<input name="workflow_automation" type="checkbox" value="Zapier"/>
+<span class="fake-check"></span>
+<span>Zapier</span>
+</label>
+<label class="check-row">
+<input name="workflow_automation" type="checkbox" value="Make (Integromat)"/>
+<span class="fake-check"></span>
+<span>Make (Integromat)</span>
+</label>
+<label class="check-row">
+<input name="workflow_automation" type="checkbox" value="Apache Airflow"/>
+<span class="fake-check"></span>
+<span>Apache Airflow</span>
+</label>
+<label class="check-row">
+<input name="workflow_automation" type="checkbox" value="Temporal"/>
+<span class="fake-check"></span>
+<span>Temporal</span>
+</label>
+<label class="check-row">
+<input name="workflow_automation" type="checkbox" value="Dagster"/>
+<span class="fake-check"></span>
+<span>Dagster</span>
+</label>
+<label class="check-row">
+<input name="workflow_automation" type="checkbox" value="Prefect"/>
+<span class="fake-check"></span>
+<span>Prefect</span>
+</label>
+<label class="check-row">
+<input name="workflow_automation" type="checkbox" value="LangGraph"/>
+<span class="fake-check"></span>
+<span>LangGraph</span>
+</label>
+<label class="check-row">
+<input name="workflow_automation" type="checkbox" value="Windmill"/>
+<span class="fake-check"></span>
+<span>Windmill</span>
+</label>
+<label class="check-row">
+<input name="workflow_automation" type="checkbox" value="Activepieces"/>
+<span class="fake-check"></span>
+<span>Activepieces</span>
+</label></div><div class="custom-option-row" data-custom-group="workflow_automation"><input aria-label="Automation tool custom entry" placeholder="Add another automation tool..." type="text"/><button class="btn ghost custom-add" data-group="workflow_automation" type="button">+ Add</button></div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="workflow_notes">Workflow automation details</label></div>
+<textarea id="workflow_notes" name="workflow_notes" placeholder="Which workflows are automated? Triggers, integrations, agents involved..." rows="4"></textarea>
+</div>
+</div>
+<div class="card tinted">
+<h3 class="card-title">Local / On-device LLMs</h3>
+<p class="helper">Run open-weight LLMs locally — for cost, privacy, latency, or offline use.</p>
+<h4>Runtimes</h4>
+<div class="check-grid cols-2"><label class="check-row">
+<input name="local_runtimes" type="checkbox" value="Ollama"/>
+<span class="fake-check"></span>
+<span>Ollama</span>
+</label>
+<label class="check-row">
+<input name="local_runtimes" type="checkbox" value="LM Studio"/>
+<span class="fake-check"></span>
+<span>LM Studio</span>
+</label>
+<label class="check-row">
+<input name="local_runtimes" type="checkbox" value="vLLM"/>
+<span class="fake-check"></span>
+<span>vLLM</span>
+</label>
+<label class="check-row">
+<input name="local_runtimes" type="checkbox" value="llama.cpp"/>
+<span class="fake-check"></span>
+<span>llama.cpp</span>
+</label>
+<label class="check-row">
+<input name="local_runtimes" type="checkbox" value="Apple MLX"/>
+<span class="fake-check"></span>
+<span>Apple MLX</span>
+</label>
+<label class="check-row">
+<input name="local_runtimes" type="checkbox" value="GPT4All"/>
+<span class="fake-check"></span>
+<span>GPT4All</span>
+</label>
+<label class="check-row">
+<input name="local_runtimes" type="checkbox" value="Text Generation Inference (TGI)"/>
+<span class="fake-check"></span>
+<span>Text Generation Inference (TGI)</span>
+</label>
+<label class="check-row">
+<input name="local_runtimes" type="checkbox" value="TensorRT-LLM"/>
+<span class="fake-check"></span>
+<span>TensorRT-LLM</span>
+</label></div><div class="custom-option-row" data-custom-group="local_runtimes"><input aria-label="Runtime custom entry" placeholder="Add another runtime..." type="text"/><button class="btn ghost custom-add" data-group="local_runtimes" type="button">+ Add</button></div>
+<h4>Local models you actually ran</h4>
+<div class="check-grid cols-2"><label class="check-row">
+<input name="local_models" type="checkbox" value="Kimi (Moonshot)"/>
+<span class="fake-check"></span>
+<span>Kimi (Moonshot)</span>
+</label>
+<label class="check-row">
+<input name="local_models" type="checkbox" value="DeepSeek (R1, V3, Coder)"/>
+<span class="fake-check"></span>
+<span>DeepSeek (R1, V3, Coder)</span>
+</label>
+<label class="check-row">
+<input name="local_models" type="checkbox" value="Qwen 2 / 2.5"/>
+<span class="fake-check"></span>
+<span>Qwen 2 / 2.5</span>
+</label>
+<label class="check-row"><input name="local_models" type="checkbox" value="GLM (ChatGLM, GLM-4)"/><span class="fake-check"></span><span>GLM (ChatGLM, GLM-4)</span></label>
+<label class="check-row">
+<input name="local_models" type="checkbox" value="Llama 3 / 3.1 / 3.2"/>
+<span class="fake-check"></span>
+<span>Llama 3 / 3.1 / 3.2</span>
+</label>
+<label class="check-row">
+<input name="local_models" type="checkbox" value="Mistral / Mixtral"/>
+<span class="fake-check"></span>
+<span>Mistral / Mixtral</span>
+</label>
+<label class="check-row">
+<input name="local_models" type="checkbox" value="Gemma 2"/>
+<span class="fake-check"></span>
+<span>Gemma 2</span>
+</label>
+<label class="check-row">
+<input name="local_models" type="checkbox" value="Phi-3 / Phi-4"/>
+<span class="fake-check"></span>
+<span>Phi-3 / Phi-4</span>
+</label>
+<label class="check-row">
+<input name="local_models" type="checkbox" value="Yi"/>
+<span class="fake-check"></span>
+<span>Yi</span>
+</label></div><div class="custom-option-row" data-custom-group="local_models"><input aria-label="Local model custom entry" placeholder="Add another local model (e.g. DeepSeek-R1-Distill-7B)..." type="text"/><button class="btn ghost custom-add" data-group="local_models" type="button">+ Add</button></div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="local_hardware">Hardware</label></div>
+<textarea id="local_hardware" name="local_hardware" placeholder="Hardware (CPU/GPU/Apple Silicon), quantization (Q4_K_M, GGUF), why local vs cloud..." rows="4"></textarea>
+</div>
+</div>
+<div class="card tinted">
+<h3 class="card-title">Agentic Frameworks Used</h3>
+<p class="helper">Frameworks for autonomous / multi-agent systems.</p>
+<div class="check-grid cols-2"><label class="check-row">
+<input name="agentic_frameworks" type="checkbox" value="Hermes (Nous Research) — function-calling agent runtime"/>
+<span class="fake-check"></span>
+<span>Hermes (Nous Research) — function-calling agent runtime</span>
+</label>
+<label class="check-row">
+<input name="agentic_frameworks" type="checkbox" value="OpenClaw — open-source agent builder"/>
+<span class="fake-check"></span>
+<span>OpenClaw — open-source agent builder</span>
+</label>
+<label class="check-row">
+<input name="agentic_frameworks" type="checkbox" value="LangGraph — graph-based agent orchestration"/>
+<span class="fake-check"></span>
+<span>LangGraph — graph-based agent orchestration</span>
+</label>
+<label class="check-row">
+<input name="agentic_frameworks" type="checkbox" value="CrewAI — role-based multi-agent crews"/>
+<span class="fake-check"></span>
+<span>CrewAI — role-based multi-agent crews</span>
+</label>
+<label class="check-row">
+<input name="agentic_frameworks" type="checkbox" value="AutoGen (Microsoft) — conversational multi-agent"/>
+<span class="fake-check"></span>
+<span>AutoGen (Microsoft) — conversational multi-agent</span>
+</label>
+<label class="check-row">
+<input name="agentic_frameworks" type="checkbox" value="OpenAI Swarm — lightweight handoffs"/>
+<span class="fake-check"></span>
+<span>OpenAI Swarm — lightweight handoffs</span>
+</label>
+<label class="check-row">
+<input name="agentic_frameworks" type="checkbox" value="OpenAI Agents SDK"/>
+<span class="fake-check"></span>
+<span>OpenAI Agents SDK</span>
+</label>
+<label class="check-row">
+<input name="agentic_frameworks" type="checkbox" value="Letta / MemGPT — stateful agents with memory"/>
+<span class="fake-check"></span>
+<span>Letta / MemGPT — stateful agents with memory</span>
+</label>
+<label class="check-row">
+<input name="agentic_frameworks" type="checkbox" value="smolagents (HuggingFace) — code-acting agents"/>
+<span class="fake-check"></span>
+<span>smolagents (HuggingFace) — code-acting agents</span>
+</label>
+<label class="check-row">
+<input name="agentic_frameworks" type="checkbox" value="Pydantic-AI — typed agent framework"/>
+<span class="fake-check"></span>
+<span>Pydantic-AI — typed agent framework</span>
+</label>
+<label class="check-row">
+<input name="agentic_frameworks" type="checkbox" value="Mastra — TypeScript agent framework"/>
+<span class="fake-check"></span>
+<span>Mastra — TypeScript agent framework</span>
+</label>
+<label class="check-row">
+<input name="agentic_frameworks" type="checkbox" value="DSPy — programmatic prompt optimization"/>
+<span class="fake-check"></span>
+<span>DSPy — programmatic prompt optimization</span>
+</label>
+<label class="check-row">
+<input name="agentic_frameworks" type="checkbox" value="Agno (formerly Phidata)"/>
+<span class="fake-check"></span>
+<span>Agno (formerly Phidata)</span>
+</label>
+<label class="check-row">
+<input name="agentic_frameworks" type="checkbox" value="Google ADK (Agent Development Kit)"/>
+<span class="fake-check"></span>
+<span>Google ADK (Agent Development Kit)</span>
+</label></div><div class="custom-option-row" data-custom-group="agentic_frameworks"><input aria-label="Agentic framework custom entry" placeholder="Add another agentic framework..." type="text"/><button class="btn ghost custom-add" data-group="agentic_frameworks" type="button">+ Add</button></div>
+</div>
+<div class="card tinted">
+<h3 class="card-title">AI Development Lifecycle (AI-DLC)</h3>
+<p class="helper">AI-assisted development lifecycle workflows, specifications and agent-oriented coding practices.</p>
+<div class="check-grid cols-2"><label class="check-row">
+<input name="aidlc_frameworks" type="checkbox" value="AWS Kiro — spec-driven AI-DLC IDE"/>
+<span class="fake-check"></span>
+<span>AWS Kiro — spec-driven AI-DLC IDE</span>
+</label>
+<label class="check-row">
+<input name="aidlc_frameworks" type="checkbox" value="AWS AI-DLC GitHub workflow (aws-samples)"/>
+<span class="fake-check"></span>
+<span>AWS AI-DLC GitHub workflow (aws-samples)</span>
+</label>
+<label class="check-row">
+<input name="aidlc_frameworks" type="checkbox" value="BMAD-METHOD — agentic agile development"/>
+<span class="fake-check"></span>
+<span>BMAD-METHOD — agentic agile development</span>
+</label>
+<label class="check-row">
+<input name="aidlc_frameworks" type="checkbox" value="GitHub Spec-Kit — Spec-Driven Development"/>
+<span class="fake-check"></span>
+<span>GitHub Spec-Kit — Spec-Driven Development</span>
+</label>
+<label class="check-row">
+<input name="aidlc_frameworks" type="checkbox" value="Cursor Rules + PRD workflow"/>
+<span class="fake-check"></span>
+<span>Cursor Rules + PRD workflow</span>
+</label>
+<label class="check-row">
+<input name="aidlc_frameworks" type="checkbox" value="Cline Memory Bank"/>
+<span class="fake-check"></span>
+<span>Cline Memory Bank</span>
+</label>
+<label class="check-row">
+<input name="aidlc_frameworks" type="checkbox" value="Aider conventions / CONVENTIONS.md"/>
+<span class="fake-check"></span>
+<span>Aider conventions / CONVENTIONS.md</span>
+</label>
+<label class="check-row">
+<input name="aidlc_frameworks" type="checkbox" value="Windsurf Rules / Cascade workflows"/>
+<span class="fake-check"></span>
+<span>Windsurf Rules / Cascade workflows</span>
+</label>
+<label class="check-row">
+<input name="aidlc_frameworks" type="checkbox" value="Claude Skills"/>
+<span class="fake-check"></span>
+<span>Claude Skills</span>
+</label>
+<label class="check-row">
+<input name="aidlc_frameworks" type="checkbox" value="AGENTS.md spec"/>
+<span class="fake-check"></span>
+<span>AGENTS.md spec</span>
+</label></div><div class="custom-option-row" data-custom-group="aidlc_frameworks"><input aria-label="AI-DLC framework custom entry" placeholder="Add another AI-DLC framework..." type="text"/><button class="btn ghost custom-add" data-group="aidlc_frameworks" type="button">+ Add</button></div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="aidlc_process">Process notes (phases, artifacts, review gates)</label></div>
+<textarea id="aidlc_process" name="aidlc_process" placeholder="e.g. Architect agent produced PRD → implementation agent broke into stories → Dev/QA agents implemented and reviewed with regression evals at every merge..." rows="4"></textarea>
+</div>
+</div>
+<div class="card recommended">
+<div class="rec-icon">▣</div>
+<div class="rec-copy">
+<h3>Build a Live /docs Module (Recommended)</h3>
+<p>Optional but highly encouraged. A /docs page acts as your live pitch deck + technical whitepaper + system dashboard, giving investors and technical evaluators a fast, credible way to assess your product, team, and architecture in minutes.</p>
+<div class="check-grid cols-1"><label class="check-row">
+<input name="live_mockline" type="checkbox" value="Yes — we will run the /docs module prompt and ship a live documentation page"/>
+<span class="fake-check"></span>
+<span>Yes — we will run the /docs module prompt and ship a live documentation page</span>
+</label></div>
+<p class="helper">Helps judges and investors evaluate your application faster, more fairly, and with greater trust in your data.</p><button class="docs-toggle" type="button">Show instructions &amp; copy prompt</button><div class="docs-panel" hidden="">The detailed /docs module instructions were not expanded in the provided screenshots. This is a placeholder until that panel is captured.</div></div>
+</div>
+<div class="card">
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="ai_other">Anything else about your AI usage?</label></div>
+<textarea id="ai_other" name="ai_other" placeholder="Anything novel or notable we didn't ask about..." rows="4"></textarea>
+</div>
+</div>
+</section><section class="section-block" data-step="4" id="data-lifecycle">
+<div class="section-title blue" data-screen-verified="2026-10-25">
+<div class="section-icon">▤</div>
+<div><span>Data Lifecycle</span><h2>Data Lifecycle &amp; Engineering</h2><p>Show your full AI-native data stack — acquisition, parsing, storage, visualization, ML/insights, outbound APIs, and governance.</p></div>
+</div>
+<div class="card">
+<div class="subhead">
+<div>
+<h3><span class="subnum">1.</span>Data Sources</h3>
+<p>Where does your data come from? Select all that apply.</p>
+</div>
+</div>
+<div class="check-grid cols-2"><label class="check-row">
+<input name="data_sources" type="checkbox" value="Internal (own DB / app data)"/>
+<span class="fake-check"></span>
+<span>Internal (own DB / app data)</span>
+</label>
+<label class="check-row">
+<input name="data_sources" type="checkbox" value="External APIs (paid/free)"/>
+<span class="fake-check"></span>
+<span>External APIs (paid/free)</span>
+</label>
+<label class="check-row">
+<input name="data_sources" type="checkbox" value="Public Web (scraping)"/>
+<span class="fake-check"></span>
+<span>Public Web (scraping)</span>
+</label>
+<label class="check-row">
+<input name="data_sources" type="checkbox" value="Open Datasets (Kaggle, HF, gov)"/>
+<span class="fake-check"></span>
+<span>Open Datasets (Kaggle, HF, gov)</span>
+</label>
+<label class="check-row">
+<input name="data_sources" type="checkbox" value="User Uploads / Bulk Import"/>
+<span class="fake-check"></span>
+<span>User Uploads / Bulk Import</span>
+</label>
+<label class="check-row">
+<input name="data_sources" type="checkbox" value="IoT / Sensor / Streaming"/>
+<span class="fake-check"></span>
+<span>IoT / Sensor / Streaming</span>
+</label>
+<label class="check-row">
+<input name="data_sources" type="checkbox" value="Third-party / Partner Data"/>
+<span class="fake-check"></span>
+<span>Third-party / Partner Data</span>
+</label>
+<label class="check-row">
+<input name="data_sources" type="checkbox" value="Synthetic / AI-generated Data"/>
+<span class="fake-check"></span>
+<span>Synthetic / AI-generated Data</span>
+</label></div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="data_sources_notes">Specific sources</label></div>
+<textarea id="data_sources_notes" name="data_sources_notes" placeholder="List specific sources — APIs, sites, datasets, partners, sensors, internal systems..." rows="4"></textarea>
+</div>
+<div class="subhead">
+<div>
+<h3><span class="subnum">2.</span>Acquisition Methods</h3>
+<p>How do you collect the data?</p>
+</div>
+</div>
+<div class="check-grid cols-2"><label class="check-row">
+<input name="acquisition_methods" type="checkbox" value="Web Scrapers (Playwright, Puppeteer, Scrapy)"/>
+<span class="fake-check"></span>
+<span>Web Scrapers (Playwright, Puppeteer, Scrapy)</span>
+</label>
+<label class="check-row">
+<input name="acquisition_methods" type="checkbox" value="AI Extraction (LLM parsing of unstructured)"/>
+<span class="fake-check"></span>
+<span>AI Extraction (LLM parsing of unstructured)</span>
+</label>
+<label class="check-row">
+<input name="acquisition_methods" type="checkbox" value="MCP Servers for data access"/>
+<span class="fake-check"></span>
+<span>MCP Servers for data access</span>
+</label>
+<label class="check-row">
+<input name="acquisition_methods" type="checkbox" value="Bulk Upload (CSV/XLSX/PDF intake)"/>
+<span class="fake-check"></span>
+<span>Bulk Upload (CSV/XLSX/PDF intake)</span>
+</label>
+<label class="check-row">
+<input name="acquisition_methods" type="checkbox" value="Automated Flows (n8n, Airflow, cron, webhooks)"/>
+<span class="fake-check"></span>
+<span>Automated Flows (n8n, Airflow, cron, webhooks)</span>
+</label>
+<label class="check-row">
+<input name="acquisition_methods" type="checkbox" value="API Pull / SDK integrations"/>
+<span class="fake-check"></span>
+<span>API Pull / SDK integrations</span>
+</label>
+<label class="check-row">
+<input name="acquisition_methods" type="checkbox" value="RSS / Atom Feeds"/>
+<span class="fake-check"></span>
+<span>RSS / Atom Feeds</span>
+</label>
+<label class="check-row">
+<input name="acquisition_methods" type="checkbox" value="Email Inbox / Inbound Parsing"/>
+<span class="fake-check"></span>
+<span>Email Inbox / Inbound Parsing</span>
+</label>
+<label class="check-row">
+<input name="acquisition_methods" type="checkbox" value="OCR (Tesseract, Donut, Textract)"/>
+<span class="fake-check"></span>
+<span>OCR (Tesseract, Donut, Textract)</span>
+</label>
+<label class="check-row">
+<input name="acquisition_methods" type="checkbox" value="Speech-to-Text (Whisper, Deepgram)"/>
+<span class="fake-check"></span>
+<span>Speech-to-Text (Whisper, Deepgram)</span>
+</label></div>
+<div class="grid-2">
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="scrapers_used">Scrapers / crawlers used</label></div>
+<textarea id="scrapers_used" name="scrapers_used" placeholder="e.g. Playwright headless, Scrapy spiders, Crawlee, Firecrawl, anti-bot strategies..." rows="4"></textarea>
+</div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="mcp_data_access">MCP servers for data access</label></div>
+<textarea id="mcp_data_access" name="mcp_data_access" placeholder="e.g. Postgres MCP, Filesystem MCP, custom MCP exposing internal warehouse..." rows="4"></textarea>
+</div>
+</div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="acquisition_details">Bulk upload / automated flow details</label></div>
+<textarea id="acquisition_details" name="acquisition_details" placeholder="Bulk upload UI, automated flows (n8n / Airflow / cron / webhooks), AI-driven extraction details..." rows="4"></textarea>
+</div>
+<div class="subhead">
+<div>
+<h3><span class="subnum">3.</span>Parsing, Formats &amp; Cleaning</h3>
+<p>Raw formats handled and how you normalize them.</p>
+</div>
+</div>
+<div class="pill-wrap"><label class="format-pill"><input name="formats" type="checkbox" value="JSON"/><span>JSON</span></label><label class="format-pill"><input name="formats" type="checkbox" value="CSV"/><span>CSV</span></label><label class="format-pill"><input name="formats" type="checkbox" value="XLSX"/><span>XLSX</span></label><label class="format-pill"><input name="formats" type="checkbox" value="PDF"/><span>PDF</span></label><label class="format-pill"><input name="formats" type="checkbox" value="Parquet"/><span>Parquet</span></label><label class="format-pill"><input name="formats" type="checkbox" value="Avro"/><span>Avro</span></label><label class="format-pill"><input name="formats" type="checkbox" value="XML"/><span>XML</span></label><label class="format-pill"><input name="formats" type="checkbox" value="YAML"/><span>YAML</span></label><label class="format-pill"><input name="formats" type="checkbox" value="JSONL"/><span>JSONL</span></label><label class="format-pill"><input name="formats" type="checkbox" value="Markdown"/><span>Markdown</span></label><label class="format-pill"><input name="formats" type="checkbox" value="HTML"/><span>HTML</span></label><label class="format-pill"><input name="formats" type="checkbox" value="Images"/><span>Images</span></label><label class="format-pill"><input name="formats" type="checkbox" value="Audio"/><span>Audio</span></label><label class="format-pill"><input name="formats" type="checkbox" value="Video"/><span>Video</span></label><label class="format-pill"><input name="formats" type="checkbox" value="Protobuf"/><span>Protobuf</span></label></div>
+<div class="grid-2">
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="parsers_used">Parsers used</label></div>
+<textarea id="parsers_used" name="parsers_used" placeholder="e.g. Unstructured.io, PyPDF, Cheerio, BeautifulSoup, pandas, LLM JSON-mode parsing..." rows="4"></textarea>
+</div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="formatters_used">Formatters / converters</label></div>
+<textarea id="formatters_used" name="formatters_used" placeholder="e.g. csvkit, pandoc, xlsxwriter, Markdown→HTML, JSON→Parquet via DuckDB..." rows="4"></textarea>
+</div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="cleaning_enrichment">Data cleaning &amp; enrichment</label></div>
+<textarea id="cleaning_enrichment" name="cleaning_enrichment" placeholder="Dedup, normalization, geocoding, entity resolution, AI enrichment..." rows="4"></textarea>
+</div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="schema_validation">Schema validation</label></div>
+<textarea id="schema_validation" name="schema_validation" placeholder="Zod, Pydantic, JSON Schema, Great Expectations, contract tests..." rows="4"></textarea>
+</div>
+</div>
+<div class="subhead">
+<div>
+<h3><span class="subnum">4.</span>Storage Targets</h3>
+</div>
+</div>
+<div class="check-grid cols-2"><label class="check-row">
+<input name="storage_targets" type="checkbox" value="Relational (Postgres, MySQL)"/>
+<span class="fake-check"></span>
+<span>Relational (Postgres, MySQL)</span>
+</label>
+<label class="check-row">
+<input name="storage_targets" type="checkbox" value="NoSQL (Mongo, Dynamo, Firestore)"/>
+<span class="fake-check"></span>
+<span>NoSQL (Mongo, Dynamo, Firestore)</span>
+</label>
+<label class="check-row">
+<input name="storage_targets" type="checkbox" value="Vector DB (pgvector, Pinecone, Weaviate)"/>
+<span class="fake-check"></span>
+<span>Vector DB (pgvector, Pinecone, Weaviate)</span>
+</label>
+<label class="check-row">
+<input name="storage_targets" type="checkbox" value="Object Storage (S3, R2, GCS)"/>
+<span class="fake-check"></span>
+<span>Object Storage (S3, R2, GCS)</span>
+</label>
+<label class="check-row">
+<input name="storage_targets" type="checkbox" value="Data Warehouse (BigQuery, Snowflake, DuckDB)"/>
+<span class="fake-check"></span>
+<span>Data Warehouse (BigQuery, Snowflake, DuckDB)</span>
+</label>
+<label class="check-row">
+<input name="storage_targets" type="checkbox" value="Lakehouse (Delta, Iceberg, Hudi)"/>
+<span class="fake-check"></span>
+<span>Lakehouse (Delta, Iceberg, Hudi)</span>
+</label>
+<label class="check-row">
+<input name="storage_targets" type="checkbox" value="Graph DB (Neo4j, ArangoDB)"/>
+<span class="fake-check"></span>
+<span>Graph DB (Neo4j, ArangoDB)</span>
+</label>
+<label class="check-row">
+<input name="storage_targets" type="checkbox" value="Cache / KV (Redis, Memcached)"/>
+<span class="fake-check"></span>
+<span>Cache / KV (Redis, Memcached)</span>
+</label></div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="storage_notes">Storage architecture</label></div>
+<textarea id="storage_notes" name="storage_notes" placeholder="Schema design, partitioning, indexes, retention, tiered storage..." rows="4"></textarea>
+</div>
+<div class="subhead">
+<div>
+<h3><span class="subnum">5.</span>Visualization (open source preferred)</h3>
+</div>
+</div>
+<div class="check-grid cols-3"><label class="check-row">
+<input name="visualization_tools" type="checkbox" value="Recharts"/>
+<span class="fake-check"></span>
+<span>Recharts</span>
+</label>
+<label class="check-row">
+<input name="visualization_tools" type="checkbox" value="Chart.js"/>
+<span class="fake-check"></span>
+<span>Chart.js</span>
+</label>
+<label class="check-row">
+<input name="visualization_tools" type="checkbox" value="D3.js"/>
+<span class="fake-check"></span>
+<span>D3.js</span>
+</label>
+<label class="check-row">
+<input name="visualization_tools" type="checkbox" value="Plotly"/>
+<span class="fake-check"></span>
+<span>Plotly</span>
+</label>
+<label class="check-row">
+<input name="visualization_tools" type="checkbox" value="Apache ECharts"/>
+<span class="fake-check"></span>
+<span>Apache ECharts</span>
+</label>
+<label class="check-row">
+<input name="visualization_tools" type="checkbox" value="Vega/Vega-Lite"/>
+<span class="fake-check"></span>
+<span>Vega/Vega-Lite</span>
+</label>
+<label class="check-row">
+<input name="visualization_tools" type="checkbox" value="Observable"/>
+<span class="fake-check"></span>
+<span>Observable</span>
+</label>
+<label class="check-row">
+<input name="visualization_tools" type="checkbox" value="Superset"/>
+<span class="fake-check"></span>
+<span>Superset</span>
+</label>
+<label class="check-row">
+<input name="visualization_tools" type="checkbox" value="Metabase"/>
+<span class="fake-check"></span>
+<span>Metabase</span>
+</label>
+<label class="check-row">
+<input name="visualization_tools" type="checkbox" value="Grafana"/>
+<span class="fake-check"></span>
+<span>Grafana</span>
+</label>
+<label class="check-row">
+<input name="visualization_tools" type="checkbox" value="Kibana"/>
+<span class="fake-check"></span>
+<span>Kibana</span>
+</label>
+<label class="check-row">
+<input name="visualization_tools" type="checkbox" value="Streamlit"/>
+<span class="fake-check"></span>
+<span>Streamlit</span>
+</label>
+<label class="check-row">
+<input name="visualization_tools" type="checkbox" value="Dash"/>
+<span class="fake-check"></span>
+<span>Dash</span>
+</label></div><div class="custom-option-row data-custom-row" data-data-custom-group="visualization_tools"><input aria-label="Add visualization tool" placeholder="Add another viz tool..." type="text"/><button class="btn ghost data-custom-add" data-group="visualization_tools" type="button">＋ Add</button></div>
+<div class="grid-2">
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="visualization_details">Visualization details</label></div>
+<textarea id="visualization_details" name="visualization_details" placeholder="Chart types, interactivity, real-time updates, accessibility..." rows="4"></textarea>
+</div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="dashboard_reports">Dashboards &amp; reports</label></div>
+<textarea id="dashboard_reports" name="dashboard_reports" placeholder="Superset/Metabase/Grafana boards, scheduled PDF reports, embedded analytics..." rows="4"></textarea>
+</div>
+</div>
+<div class="subhead">
+<div>
+<h3><span class="subnum">6.</span>Insights — AI, ML &amp; Non-AI</h3>
+</div>
+</div>
+<div class="check-grid cols-2"><label class="check-row">
+<input name="insight_methods" type="checkbox" value="Classical ML (scikit-learn, XGBoost, LightGBM)"/>
+<span class="fake-check"></span>
+<span>Classical ML (scikit-learn, XGBoost, LightGBM)</span>
+</label>
+<label class="check-row">
+<input name="insight_methods" type="checkbox" value="Deep Learning (PyTorch, TensorFlow, JAX)"/>
+<span class="fake-check"></span>
+<span>Deep Learning (PyTorch, TensorFlow, JAX)</span>
+</label>
+<label class="check-row">
+<input name="insight_methods" type="checkbox" value="LLM Inference / RAG over data"/>
+<span class="fake-check"></span>
+<span>LLM Inference / RAG over data</span>
+</label>
+<label class="check-row">
+<input name="insight_methods" type="checkbox" value="Forecasting (Prophet, statsmodels, NeuralProphet)"/>
+<span class="fake-check"></span>
+<span>Forecasting (Prophet, statsmodels, NeuralProphet)</span>
+</label>
+<label class="check-row">
+<input name="insight_methods" type="checkbox" value="Anomaly Detection"/>
+<span class="fake-check"></span>
+<span>Anomaly Detection</span>
+</label>
+<label class="check-row">
+<input name="insight_methods" type="checkbox" value="Clustering / Segmentation"/>
+<span class="fake-check"></span>
+<span>Clustering / Segmentation</span>
+</label>
+<label class="check-row">
+<input name="insight_methods" type="checkbox" value="Rule Engine / Heuristics (non-AI)"/>
+<span class="fake-check"></span>
+<span>Rule Engine / Heuristics (non-AI)</span>
+</label>
+<label class="check-row">
+<input name="insight_methods" type="checkbox" value="Statistical Analysis"/>
+<span class="fake-check"></span>
+<span>Statistical Analysis</span>
+</label></div>
+<div class="grid-2">
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="aiml_details">AI / ML details</label></div>
+<textarea id="aiml_details" name="aiml_details" placeholder="Models, features, training data, evaluation metrics..." rows="4"></textarea>
+</div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="non_ai_analytics">Non-AI analytics</label></div>
+<textarea id="non_ai_analytics" name="non_ai_analytics" placeholder="SQL aggregations, statistical tests, deterministic rules, KPIs..." rows="4"></textarea>
+</div>
+</div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="insight_delivery">How are insights delivered to users?</label></div>
+<textarea id="insight_delivery" name="insight_delivery" placeholder="In-app dashboards, alerts, AI summaries, email digests, Slack bots..." rows="4"></textarea>
+</div>
+<div class="subhead">
+<div>
+<h3><span class="subnum">7.</span>Pipelines &amp; Orchestration</h3>
+</div>
+</div>
+<div class="grid-3">
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="orchestration">Orchestration</label></div>
+<textarea id="orchestration" name="orchestration" placeholder="Airflow, Dagster, Prefect, n8n, Temporal..." rows="4"></textarea>
+</div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="scheduling">Scheduling / Triggers</label></div>
+<textarea id="scheduling" name="scheduling" placeholder="Cron, pg_cron, event driven webhooks..." rows="4"></textarea>
+</div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="streaming">Streaming / Real time</label></div>
+<textarea id="streaming" name="streaming" placeholder="Kafka, Redpanda, NATS, Supabase Realtime, CDC..." rows="4"></textarea>
+</div>
+</div>
+<div class="subhead">
+<div>
+<h3><span class="subnum">8.</span>Outbound — APIs &amp; Distribution</h3>
+</div>
+</div>
+<div class="grid-3">
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="outbound_apis">Outbound APIs</label></div>
+<textarea id="outbound_apis" name="outbound_apis" placeholder="REST/GraphQL endpoints, auth, rate limits, OpenAPI docs..." rows="4"></textarea>
+</div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="webhooks_exports">Webhooks &amp; exports</label></div>
+<textarea id="webhooks_exports" name="webhooks_exports" placeholder="Outbound webhooks, CSV/XLSX/PDF exports, S3 drops..." rows="4"></textarea>
+</div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="embedding_serving">Embeddings / model serving</label></div>
+<textarea id="embedding_serving" name="embedding_serving" placeholder="Embedding API, MCP server we expose, hosted inference endpoints..." rows="4"></textarea>
+</div>
+</div>
+<div class="subhead">
+<div>
+<h3><span class="subnum">9.</span>Open Source Stack</h3>
+<p>List the open-source tools you used across the data lifecycle and what role each played.</p>
+</div>
+</div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="data_open_source">Open-source stack</label></div>
+<textarea id="data_open_source" name="data_open_source" placeholder="e.g. DuckDB for in-process analytics, Meltano for ELT, Superset for BI, Unstructured.io for parsing, Ollama for local inference..." rows="4"></textarea>
+</div>
+<div class="subhead">
+<div>
+<h3><span class="subnum">10.</span>Quality, Governance &amp; Observability</h3>
+</div>
+</div>
+<div class="grid-2">
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="data_quality">Data quality</label></div>
+<textarea id="data_quality" name="data_quality" placeholder="Tests, freshness SLAs, completeness checks, Great Expectations / Soda..." rows="4"></textarea>
+</div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="privacy_compliance">Privacy &amp; compliance</label></div>
+<textarea id="privacy_compliance" name="privacy_compliance" placeholder="PII handling, consent, GDPR, anonymization, access controls..." rows="4"></textarea>
+</div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="lineage_observability">Lineage &amp; observability</label></div>
+<textarea id="lineage_observability" name="lineage_observability" placeholder="OpenLineage, Marquez, dbt docs, logging, alerting..." rows="4"></textarea>
+</div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="cost_performance">Cost &amp; performance</label></div>
+<textarea id="cost_performance" name="cost_performance" placeholder="Caching, batching, partitioning, cheap model routing, infra cost notes..." rows="4"></textarea>
+</div>
+</div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="data_other">Anything else about your data stack?</label></div>
+<textarea id="data_other" name="data_other" placeholder="Novel architectures, AI-native patterns, agent-driven data ops, future roadmap..." rows="4"></textarea>
+</div>
+</div>
+</section><section class="section-block" data-screen-verified="2026-10-25" data-step="5" id="deploy">
+<div class="section-title green">
+<div class="section-icon">⌁</div>
+<div><span>Deployment</span><h2>Publish Local Environment to Internet</h2><p>Open-source / free tunneling tools used to expose a local dev server to the internet (webhooks, demos, MCP, OAuth callbacks).</p></div>
+</div>
+<div class="card">
+<div class="check-grid cols-2"><label class="check-row">
+<input name="tunneling_tools" type="checkbox" value="ngrok"/>
+<span class="fake-check"></span>
+<span>ngrok</span>
+</label>
+<label class="check-row">
+<input name="tunneling_tools" type="checkbox" value="Cloudflare Tunnel (cloudflared)"/>
+<span class="fake-check"></span>
+<span>Cloudflare Tunnel (cloudflared)</span>
+</label>
+<label class="check-row">
+<input name="tunneling_tools" type="checkbox" value="Tailscale Funnel"/>
+<span class="fake-check"></span>
+<span>Tailscale Funnel</span>
+</label>
+<label class="check-row">
+<input name="tunneling_tools" type="checkbox" value="localtunnel"/>
+<span class="fake-check"></span>
+<span>localtunnel</span>
+</label>
+<label class="check-row">
+<input name="tunneling_tools" type="checkbox" value="Pinggy"/>
+<span class="fake-check"></span>
+<span>Pinggy</span>
+</label>
+<label class="check-row">
+<input name="tunneling_tools" type="checkbox" value="bore"/>
+<span class="fake-check"></span>
+<span>bore</span>
+</label>
+<label class="check-row">
+<input name="tunneling_tools" type="checkbox" value="frp (fast reverse proxy)"/>
+<span class="fake-check"></span>
+<span>frp (fast reverse proxy)</span>
+</label>
+<label class="check-row">
+<input name="tunneling_tools" type="checkbox" value="Serveo (SSH-based)"/>
+<span class="fake-check"></span>
+<span>Serveo (SSH-based)</span>
+</label>
+<label class="check-row">
+<input name="tunneling_tools" type="checkbox" value="PageKite"/>
+<span class="fake-check"></span>
+<span>PageKite</span>
+</label>
+<label class="check-row">
+<input name="tunneling_tools" type="checkbox" value="Expose (Beyond Code)"/>
+<span class="fake-check"></span>
+<span>Expose (Beyond Code)</span>
+</label>
+<label class="check-row">
+<input name="tunneling_tools" type="checkbox" value="zrok (OpenZiti)"/>
+<span class="fake-check"></span>
+<span>zrok (OpenZiti)</span>
+</label>
+<label class="check-row">
+<input name="tunneling_tools" type="checkbox" value="GitHub Codespaces port forwarding"/>
+<span class="fake-check"></span>
+<span>GitHub Codespaces port forwarding</span>
+</label></div><div class="custom-option-row data-custom-row" data-data-custom-group="tunneling_tools"><input aria-label="Add tunneling tool" placeholder="Add another tunneling tool..." type="text"/><button class="btn ghost data-custom-add" data-group="tunneling_tools" type="button">＋ Add</button></div>
+<div class="field" data-required-wrap="false">
+<div class="field-head"><label for="tunneling_notes">Tunneling usage notes</label></div>
+<textarea id="tunneling_notes" name="tunneling_notes" placeholder="e.g. ngrok with reserved domain + basic auth for webhooks during dev; Cloudflare Tunnel for always-on MCP server with Access policy..." rows="4"></textarea>
+</div>
+<p class="tiny-note">What was exposed (webhook receiver, MCP server, demo), security posture (auth, allowlist), and lifecycle (dev-only vs. always-on).</p>
+</div>
+</section><section class="section-block" data-step="6" id="provenance">
+<div class="section-title cyan"><div class="section-icon">⌘</div><div><span>Build Provenance</span><h2>Build Provenance <span class="provenance-label">Transparency &amp; Auditability</span></h2></div></div>
+<div class="card provenance-required" data-require-group="data-provenance">
+<div class="provenance-head"><h3>◈ Data &amp; AI Provenance * <span class="req-badge provenance-status">⚠ Required — missing</span></h3><span class="access-pill">Judge + Admin</span></div>
+<p class="helper">Data sources, AI models used, responsible AI practices</p>
+<div class="field"><label for="provenance_data_sources">Data Sources</label><textarea id="provenance_data_sources" name="provenance_data_sources" placeholder="List data sources used (APIs, datasets, scraped data...)" rows="3"></textarea></div>
+<div class="field"><label for="provenance_ai_models">AI Models</label><textarea id="provenance_ai_models" name="provenance_ai_models" placeholder="AI models used (GPT-4, Gemini, custom models...)" rows="3"></textarea></div>
+<div class="field"><label for="provenance_responsible_ai">Responsible AI</label><textarea id="provenance_responsible_ai" name="provenance_responsible_ai" placeholder="Responsible AI practices (bias mitigation, transparency...)" rows="3"></textarea></div>
+</div>
+<div class="card provenance-required" data-require-group="tooling">
+<div class="provenance-head"><h3>⌁ Tooling &amp; IDE * <span class="req-badge provenance-status">⚠ Required — missing</span></h3><span class="access-pill">Team Only</span></div>
+<p class="helper">IDE, frameworks, deployment method</p>
+<div class="grid-2"><div class="field"><label for="ide_editor">IDE / Editor</label><select id="ide_editor" name="ide_editor" required=""><option value="">Select IDE...</option><option>Cursor</option><option>VS Code</option><option>Windsurf</option><option>Other</option></select><p class="helper">Options are provisional until the original IDE dropdown screenshot is provided.</p></div>
+<div class="field"><label for="deployment_method">Deployment Method</label><input id="deployment_method" name="deployment_method" placeholder="Vercel, AWS, Docker..." type="text"/></div></div>
+<div class="field"><label for="frameworks_libraries">Frameworks &amp; Libraries</label><input id="frameworks_libraries" name="frameworks_libraries" placeholder="React, TensorFlow, LangChain..." type="text"/></div>
+<div class="field"><label for="context_memory_files">Context / Memory Files</label><textarea id="context_memory_files" name="context_memory_files" placeholder=".cursorrules, CLAUDE.md, etc." rows="3"></textarea></div>
+</div>
+<div class="card">
+<div class="provenance-head"><h3>♧ MCP Usage</h3><span class="access-pill">Team Only</span></div>
+<p class="helper">Model Context Protocol usage details</p>
+<div class="field"><label for="mcp_servers_list">MCP Servers</label><input id="mcp_servers_list" name="mcp_servers_list" placeholder="MCP servers used (name, purpose)" type="text"/></div>
+<div class="field"><label for="mcp_tools_exposed">Tools Exposed</label><textarea id="mcp_tools_exposed" name="mcp_tools_exposed" placeholder="Tools exposed via MCP" rows="3"></textarea></div>
+<div class="field"><label for="mcp_permissions">Permissions</label><input id="mcp_permissions" name="mcp_permissions" placeholder="Permissions granted to MCP tools" type="text"/></div>
+<details class="provenance-extra"><summary>Additional MCP planning notes (local-only, not shown in screenshots)</summary>
+<div class="field"><label>MCP transports used</label><div class="check-grid cols-2"><label class="check-row"><input name="mcp_transports" type="checkbox" value="stdio"/><span class="fake-check"></span>stdio</label><label class="check-row"><input name="mcp_transports" type="checkbox" value="Streamable HTTP"/><span class="fake-check"></span>Streamable HTTP</label><label class="check-row"><input name="mcp_transports" type="checkbox" value="SSE"/><span class="fake-check"></span>SSE</label><label class="check-row"><input name="mcp_transports" type="checkbox" value="Other / Custom"/><span class="fake-check"></span>Other / Custom</label></div></div>
+<div class="field"><label for="mcp_clients_hosts">MCP Clients / Hosts</label><textarea id="mcp_clients_hosts" name="mcp_clients_hosts" placeholder="Cursor, Claude Desktop, custom host and more" rows="3"></textarea></div><div class="field"><label for="mcp_reuse_architecture">MCP Reuse / Architecture Notes</label><textarea id="mcp_reuse_architecture" name="mcp_reuse_architecture" placeholder="How server tools and reusable workflows are structured" rows="3"></textarea></div></details>
+</div>
+</section><section class="section-block" data-step="7" id="prompt-library"><div class="section-title"><div class="section-icon">▣</div><div><span>Prompt Library</span><h2>Prompt Library</h2><p>Prompts used during development</p></div></div><div class="card"><div class="provenance-head"><div></div><span class="access-pill"><span id="promptCount">0</span> prompts   ·   Team Only</span></div><div class="prompt-items" id="promptItems"></div><p class="prompt-empty" id="promptEmpty">No prompts recorded yet.</p><button class="btn ghost prompt-add" id="addPrompt" type="button">＋ Add Prompt</button></div></section><section class="section-block" data-step="8" id="team-detail"><div class="section-title"><div class="section-icon">♧</div><div><span>Team</span><h2>Team Details</h2><p>The event team and members are usually managed in CloudCamp. This local worksheet records them without claiming sync.</p></div></div><div class="card"><div class="field" data-required-wrap="false"><div class="field-head"><label for="team_name_local">Team name</label></div><input id="team_name_local" name="team_name_local" placeholder="Team name in CloudCamp" type="text"/></div><div class="field"><div class="field-head"><label for="team_members">Team members</label></div><textarea id="team_members" name="team_members" placeholder="One member per line: name, role, country, and self-reported gender if relevant" rows="3"></textarea></div></div></section><section class="section-block" data-step="9" id="judging"><div class="section-title cyan"><div class="section-icon">▤</div><div><span>Audit / transparency</span><h2>Pre-Judgment Score Breakdown</h2><p>425-point publicly displayed richness rubric. Known rules are calculated locally; tiered thresholds are estimates, not official CloudCamp scores.</p></div></div>
+<div class="card audit-panel"><div class="audit-top"><div><span class="eyebrow">PRE-JUDGMENT SCORE · LOCAL ESTIMATE</span><h2><span id="auditTotal">0</span><small> / 425</small></h2><p>Filled fields and evidence increase your estimated score. Exact tiered thresholds remain unverified.</p></div><div class="audit-percent"><strong id="auditPercent">0%</strong><small>estimated</small></div></div><div class="progress-track"><span id="auditBar"></span></div><div class="rubric-categories" id="rubricCategories"></div></div>
+<div class="card"><div class="audit-legend"><h3 class="card-title">Full scoring checklist</h3><input aria-label="Search scoring criteria" id="rubricSearch" placeholder="Search criteria, e.g. RAG, MCP, privacy..." type="search"/><label class="rubric-filter"><input id="rubricIncomplete" type="checkbox"/> Show incomplete only</label></div><div id="rubricChecklist"></div></div>
+<div class="card score-caveat"><h3>Scoring &amp; validation notes</h3><p>CloudCamp's published UI shows separate <b>Pre-Judgment (425)</b> and <b>Submission Surface (215)</b> measures. These are not interchangeable. The screenshot exposes named rubric points and some explicit thresholds, but not the complete proprietary logic. Displayed results in this local page are a working approximation; your official platform score can differ.</p></div></section><div class="submit-bar">
+<div>
+<strong>Submission draft</strong>
+<span>Your browser stores this draft locally. Export JSON before moving devices.</span>
+</div>
+<div class="submit-actions">
+<button class="btn ghost danger" id="clearForm" type="button">Clear</button>
+<button class="btn" type="submit">Validate Form</button>
+</div>
+</div>
+</form>
+</main>
+</div>
+<div aria-live="polite" class="toast" id="toast" role="status"></div>
+<script>
+// Verified domain -> challenge mapping from eleven CloudCamp UI screenshots.
+const VERIFIED_CHALLENGES = {
+  "FoodSphere AI": [
+    "Future Foods",
+    "Smart Food Chain",
+    "Food Waste Zero",
+    "Nutrition Intelligence",
+    "Food Safety Sentinel"
+  ],
+  "HealthSphere AI": [
+    "CareAnywhere",
+    "PredictRx",
+    "PersonalMD",
+    "SmartHospital",
+    "ChronicCare AI"
+  ],
+  "FinSphere AI": [
+    "CreditForAll",
+    "FraudShield",
+    "WealthPilot",
+    "SME Capital Engine",
+    "Borderless Money"
+  ],
+  "LearnSphere AI": [
+    "AI Teacher",
+    "Career Navigator",
+    "SkillBridge",
+    "Workforce Ready",
+    "Global Talent Marketplace"
+  ],
+  "ClimateSphere AI": [
+    "CarbonIQ",
+    "Climate Shield",
+    "AquaGuard",
+    "Energy Brain",
+    "Circular Future"
+  ],
+  "CivicSphere AI": [
+    "Citizen First",
+    "GovCopilot",
+    "TrustID",
+    "Smart Nation",
+    "Transparent Government"
+  ],
+  "AgriSphere AI": [
+    "Precision Farm",
+    "Crop Guardian",
+    "FarmMarket",
+    "YieldMax",
+    "Climate Smart Farming"
+  ],
+  "IndustrySphere AI": [
+    "Factory Brain",
+    "Predictive Plant",
+    "Quality Vision",
+    "Supply Chain Nexus",
+    "Green Manufacturing"
+  ],
+  "CommerceSphere AI": [
+    "GrowthPilot",
+    "HyperPersonal",
+    "Customer Genome",
+    "DemandIQ",
+    "Creator Commerce"
+  ],
+  "JusticeSphere AI": [
+    "ContractMind",
+    "ComplianceOS",
+    "Legal Copilot",
+    "GovernanceIQ",
+    "Risk Sentinel"
+  ],
+  "InfraSphere AI": [
+    "SecureAI",
+    "WorkforceOS",
+    "Knowledge Grid",
+    "AgentOps",
+    "Human+AI"
+  ]
+};
+function syncDomainChallenges(preferred = '') {
+  const domain = document.getElementById('domain');
+  const challenge = document.getElementById('challenge');
+  if (!domain || !challenge) return;
+  const current = preferred || challenge.value;
+  const values = VERIFIED_CHALLENGES[domain.value] || [];
+  challenge.replaceChildren();
+  challenge.add(new Option('Select challenge', ''));
+  values.forEach(value => challenge.add(new Option(value, value)));
+  challenge.disabled = values.length === 0;
+  challenge.value = values.includes(current) ? current : '';
+}
+// Dependent select is reset when users pick another domain.
+document.getElementById('domain').addEventListener('change', () => {
+  document.getElementById('challenge').value = '';
+  syncDomainChallenges('');
+  updateAll();
+  autoSave();
+  if (typeof v9RenderAudit === 'function') v9RenderAudit();
+});
+// Populate prior to restore from saved draft; unknown legacy options are dropped.
+syncDomainChallenges();
+
+
+const form = document.getElementById('submissionForm');
+const toast = document.getElementById('toast');
+const STORAGE_KEY = 'infinity-buildfest-full-form-v1';
+
+function showToast(msg){
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(window.__toastTimer);
+  window.__toastTimer = setTimeout(()=>toast.classList.remove('show'),2200);
+}
+
+function controls(){
+  return [...form.querySelectorAll('input,select,textarea')];
+}
+
+function getData(){
+  const data = {};
+  controls().forEach(el=>{
+    if(el.type === 'checkbox'){
+      if(!data[el.name]) data[el.name]=[];
+      if(el.checked) data[el.name].push(el.value);
+    }else{
+      data[el.name]=el.value;
+    }
+  });
+  return data;
+}
+
+function setData(data){
+  if (data.domain !== undefined) {
+    document.getElementById("domain").value = data.domain;
+    syncDomainChallenges(data.challenge || "");
+  }
+  controls().forEach(el=>{
+    if(el.type==='checkbox') el.checked = Array.isArray(data[el.name]) && data[el.name].includes(el.value);
+    else if(data[el.name] !== undefined) el.value = data[el.name];
+  });
+  updateAll();
+}
+
+function autoSave(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(getData()));
+}
+
+function updateRequired(){
+  form.querySelectorAll('[data-required-wrap="true"]').forEach(wrap=>{
+    const el = wrap.querySelector('input,select,textarea');
+    const missing = !el.value.trim();
+    wrap.classList.toggle('missing', missing);
+    wrap.classList.toggle('is-complete', !missing);
+    const badge = wrap.querySelector('.req-badge');
+    if (badge) {
+      badge.style.display = 'inline-block';
+      badge.textContent = missing ? '⚠ Required — missing' : '✓ Required — completed';
+    }
+  });
+}
+
+function updateProgress(){
+  const all = controls().filter(el=>!['button','hidden'].includes(el.type));
+  const meaningful = all.filter(el=>{
+    if(el.type==='checkbox') return el.checked;
+    return !!el.value.trim();
+  }).length;
+  const required = [...form.querySelectorAll('[required]')];
+  const requiredDone = required.filter(el=>!!el.value.trim()).length;
+  const optionalBase = Math.max(1, all.length-required.length);
+  const optionalFilled = Math.max(0, meaningful-requiredDone);
+  const pct = Math.min(100, Math.round(((requiredDone/Math.max(1,required.length))*65) + ((optionalFilled/optionalBase)*35)));
+  document.getElementById('completionText').textContent = pct+'%';
+  document.getElementById('progressBar').style.width = pct+'%';
+  document.getElementById('completionMeta').textContent = `${requiredDone}/${required.length} required fields complete · ${meaningful} total inputs answered`;
+}
+
+function updateAIScore(){
+  const count=name=>document.querySelectorAll(`#ai-native input[name="${name}"]:checked`).length;
+  const filled=id=>(document.getElementById(id)?.value||'').trim().length;
+  // Approximation: screenshot displays some maxima, but not full official text-tier thresholds.
+  let score=0;
+  score += filled('prompt_usage')?Math.min(10,Math.ceil(filled('prompt_usage')/40)*2):0;
+  score += filled('token_optimization')?Math.min(10,Math.ceil(filled('token_optimization')/40)*2):0;
+  score += Math.min(15,count('models_used')*3);
+  score += filled('model_reason')>=20?5:0;
+  score += Math.min(12,count('rag_methods')*3);
+  score += filled('rag_architecture')>=20?5:0;
+  score += Math.min(5,count('frontend_ai_builders'));
+  score += Math.min(4,count('workflow_automation'))+(document.querySelector('#ai-native input[name="workflow_automation"][value^="n8n"]:checked')?2:0);
+  score += Math.min(3,count('local_runtimes'))+(document.querySelector('#ai-native input[name="local_runtimes"][value="Ollama"]:checked')?2:0);
+  score += Math.min(8,count('local_models')*2);
+  score += Math.min(4,count('token_methods'));
+  score += Math.min(5,count('agentic_frameworks'));
+  score += Math.min(3,count('aidlc_frameworks'));
+  for(const [id,pts,min] of [['aidlc_process',3,100],['agent_orchestration',2,80],['finetuning',2,80],['evaluation',3,80],['guardrails',3,80]])if(filled(id)>=min)score+=pts;
+  document.getElementById('aiScore').textContent=Math.min(110,score);
+  document.querySelectorAll('#ai-native .ai-limit').forEach(el=>{if(el.textContent.trim().startsWith('0 /'))el.textContent=el.textContent.replace(/^0/, '—');});
+}
+
+function updateAll(){
+  updateRequired(); updateProgress(); updateAIScore();
+}
+
+form.addEventListener('input',()=>{updateAll(); autoSave();});
+form.addEventListener('change',()=>{updateAll(); autoSave();});
+
+document.getElementById('saveDraft').addEventListener('click',()=>{
+  autoSave(); showToast('Draft saved locally.');
+});
+
+document.getElementById('exportJson').addEventListener('click',()=>{
+  const data = JSON.stringify(getData(), null, 2);
+  const blob = new Blob([data],{type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href=url; a.download='infinity-buildfest-submission.json'; a.click();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+  showToast('JSON export created.');
+});
+
+document.getElementById('clearForm').addEventListener('click',()=>{
+  if(confirm('Clear every field in this form?')){
+    form.reset(); localStorage.removeItem(STORAGE_KEY); localStorage.removeItem(LINKS_KEY); updateAll(); proofCounts(); showToast('Form cleared.');
+  }
+});
+
+form.addEventListener('submit',(e)=>{
+  e.preventDefault();
+  updateRequired();
+  const missing=[...form.querySelectorAll('[required]')].filter(el=>!el.value.trim());
+  if(missing.length){
+    missing[0].scrollIntoView({behavior:'smooth',block:'center'});
+    missing[0].focus();
+    showToast(`${missing.length} required field(s) still missing.`);
+    return;
+  }
+  if(!isProvenanceComplete()||!isToolingComplete()){document.getElementById('provenance').scrollIntoView({behavior:'smooth'});showToast('Data & AI Provenance and Tooling & IDE must be completed.');return;}
+  showToast('Required fields look complete.');
+});
+
+const saved = localStorage.getItem(STORAGE_KEY);
+if(saved){
+  try{setData(JSON.parse(saved));}catch(e){updateAll();}
+}else updateAll();
+
+const links=[...document.querySelectorAll('.sidebar nav a')];
+const sections=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+entry.target.id));
+    }
+  });
+},{rootMargin:'-20% 0px -70% 0px'});
+sections.forEach(s=>observer.observe(s));
+
+function updateReadiness(){
+ const names=['project_name','elevator_pitch','public_summary','problem_statement','solution_description','youtube_video','demo_live_links','ide_editor','provenance_data_sources','provenance_ai_models','provenance_responsible_ai'];
+ const rows=names.map(name=>{const el=form.querySelector(`[name="${name}"]`);return `<div class="ready-row"><span>${name.replaceAll('_',' ')}</span><strong style="color:${el?.value?.trim()?'#23d18b':'#ff828c'}">${el?.value?.trim()?'Filled':'Missing'}</strong></div>`;});
+ const container=document.getElementById('readiness');if(container)container.innerHTML=rows.join('');
+}
+function addPrompt(initial={}){
+ const container=document.getElementById('promptItems');const n=container.children.length+1;
+ const wrap=document.createElement('div');wrap.className='prompt-entry';wrap.innerHTML=`<div class="field"><label>Prompt title</label><input type="text" placeholder="e.g. Course RAG grounding" value="${(initial.title||'').replaceAll('"','&quot;')}"></div><div class="field"><label>Prompt text</label><textarea placeholder="Prompt text, version, purpose and outcome"></textarea></div><button type="button" class="btn ghost remove-prompt">Remove</button>`;
+ wrap.querySelector('textarea').value=initial.text||'';
+ wrap.querySelector('.remove-prompt').addEventListener('click',()=>{wrap.remove();storeExtras();});
+ wrap.querySelectorAll('input,textarea').forEach(el=>el.addEventListener('input',storeExtras));
+ container.append(wrap);
+}
+function storeExtras(){localStorage.setItem(STORAGE_KEY+'-prompts',JSON.stringify([...document.querySelectorAll('.prompt-entry')].map(w=>({title:w.querySelector('input').value,text:w.querySelector('textarea').value}))));}
+document.getElementById('addPrompt').addEventListener('click',()=>{addPrompt();storeExtras();});
+try{(JSON.parse(localStorage.getItem(STORAGE_KEY+'-prompts'))||[]).forEach(addPrompt);}catch(e){}
+// V5: repeatable link rows with indexed names, local persistence, and per-category counts.
+const LINKS_KEY=STORAGE_KEY+'-proof-links-v5';
+const linkGroups=[...document.querySelectorAll('[data-link-name]')];
+function linkSnapshot(){return Object.fromEntries(linkGroups.map(group=>[group.dataset.linkName,[...group.querySelectorAll('.link-unit')].map(row=>({url:row.querySelector('input[type="url"]')?.value||'',note:row.querySelector('input[type="text"]')?.value||''}))]));}
+function persistLinks(){localStorage.setItem(LINKS_KEY,JSON.stringify(linkSnapshot()));}
+function proofCounts(){for(const group of linkGroups){const name=group.dataset.linkName;const urls=[...group.querySelectorAll('input[type="url"]')];const n=urls.filter(input=>input.value.trim()).length;const count=document.querySelector(`[data-count-for="${name}"]`);if(count)count.textContent=n;const card=group.closest('.proof-card');if(card)card.classList.toggle('proof-filled',n>0);const badge=card?.querySelector('.proof-status');if(badge)badge.textContent=n>0?'✓ Required — completed':'⚠ Required — missing';}const pending=[];if(!isProvenanceComplete())pending.push('Data & AI Provenance');if(!isToolingComplete())pending.push('Tooling & IDE');if(!form.querySelector('[name="youtube_video"]')?.value.trim())pending.push('YouTube Video');if(!form.querySelector('[name="demo_live_links"]')?.value.trim())pending.push('Demo / Live Links');const warning=document.getElementById('proofWarning');if(warning)warning.querySelector('small').textContent='Missing: '+pending.join(', ');}
+function addLinkRow(group,url='',note=''){const index=group.children.length;const name=group.dataset.linkName;const row=group.querySelector('.link-unit').cloneNode(true);row.querySelector('input[type="url"]').name=name+'__extra'+index;row.querySelector('input[type="url"]').removeAttribute('required');row.querySelector('input[type="url"]').value=url;row.querySelector('input[type="text"]').name=name+'_access_note__extra'+index;row.querySelector('input[type="text"]').value=note;const remove=document.createElement('button');remove.type='button';remove.className='remove-link';remove.textContent='Remove link';remove.addEventListener('click',()=>{row.remove();persistLinks();proofCounts();updateAll();});row.appendChild(remove);group.appendChild(row);return row;}
+let existingLinks={};try{existingLinks=JSON.parse(localStorage.getItem(LINKS_KEY))||{};}catch(e){}
+for(const group of linkGroups){const saved=existingLinks[group.dataset.linkName];if(Array.isArray(saved)){const first=group.querySelector('.link-unit');if(saved[0]){first.querySelector('input[type="url"]').value=saved[0].url||'';first.querySelector('input[type="text"]').value=saved[0].note||'';}saved.slice(1).forEach(row=>addLinkRow(group,row.url,row.note));}}
+// The regular autosave uses keyed fields, and this separately stores repeatable rows.
+for(const btn of document.querySelectorAll('.add-link'))btn.addEventListener('click',()=>{const group=document.querySelector(`[data-link-name="${btn.dataset.target}"]`);addLinkRow(group);persistLinks();proofCounts();showToast('Additional URL field added.');});
+form.addEventListener('input',()=>{proofCounts();persistLinks();});
+form.addEventListener('change',()=>{proofCounts();persistLinks();});
+proofCounts();
+form.addEventListener('input',updateReadiness);
+updateReadiness();
+
+
+// V6: dynamic extra options matching each screenshot's + Add control.
+const CUSTOM_OPTIONS_KEY=STORAGE_KEY+'-ai-custom-options-v6';
+const customGroups=Object.keys({"token_methods": ["Add another token-optimization tool...", "Token optimization"], "models_used": ["Add another model (e.g. Phi-3, Cohere Command R)...", "Model"], "rag_methods": ["Add another retrieval technique...", "Retrieval technique"], "frontend_ai_builders": ["Add another visual AI builder...", "AI builder"], "workflow_automation": ["Add another automation tool...", "Automation tool"], "local_runtimes": ["Add another runtime...", "Runtime"], "local_models": ["Add another local model (e.g. DeepSeek-R1-Distill-7B)...", "Local model"], "agentic_frameworks": ["Add another agentic framework...", "Agentic framework"], "aidlc_frameworks": ["Add another AI-DLC framework...", "AI-DLC framework"]});
+function customSnapshot(){return Object.fromEntries(customGroups.map(group=>[group,[...document.querySelectorAll(`#ai-native .check-row.custom-added input[name="${group}"]`)].map(el=>({value:el.value,checked:el.checked}))]));}
+function persistCustom(){localStorage.setItem(CUSTOM_OPTIONS_KEY,JSON.stringify(customSnapshot()));}
+function addCustomOption(group,value,checked=true){
+  const container=document.querySelector(`#ai-native [data-custom-group="${group}"]`);
+  if(!container||!value.trim())return;
+  const existing=[...document.querySelectorAll(`#ai-native input[name="${group}"]`)].find(el=>el.value.toLowerCase()===value.toLowerCase());
+  if(existing){existing.checked=checked;showToast('Already listed; selected existing option.');return;}
+  const label=document.createElement('label');label.className='check-row custom-added';
+  const input=document.createElement('input');input.type='checkbox';input.name=group;input.value=value;input.checked=checked;
+  const fake=document.createElement('span');fake.className='fake-check';
+  const text=document.createElement('span');text.textContent=value;
+  const remove=document.createElement('button');remove.type='button';remove.className='custom-remove';remove.textContent='×';remove.title='Remove custom option';remove.style.cssText='margin-left:auto;background:none;border:0;color:#ed8992;cursor:pointer;font-size:18px';
+  remove.addEventListener('click',()=>{label.remove();persistCustom();autoSave();updateAll();});
+  label.append(input,fake,text,remove);container.before(label);
+  input.addEventListener('change',()=>{persistCustom();autoSave();updateAll();});
+}
+let previousCustom={};try{previousCustom=JSON.parse(localStorage.getItem(CUSTOM_OPTIONS_KEY)||'{}');}catch(e){}
+for(const [group,items] of Object.entries(previousCustom))if(Array.isArray(items))for(const item of items)addCustomOption(group,item.value,item.checked);
+for(const btn of document.querySelectorAll('#ai-native .custom-add'))btn.addEventListener('click',()=>{
+  const group=btn.dataset.group,entry=document.querySelector(`#ai-native [data-custom-group="${group}"] input`);
+  const value=entry?.value.trim();if(!value){entry?.focus();return;}
+  addCustomOption(group,value);entry.value='';persistCustom();autoSave();updateAll();showToast('Custom option added.');
+});
+for(const entry of document.querySelectorAll('#ai-native .custom-option-row input'))entry.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();entry.parentElement.querySelector('button').click();}});
+document.querySelector('.docs-toggle')?.addEventListener('click',()=>{const panel=document.querySelector('.docs-panel');panel.hidden=!panel.hidden;});
+const oldExport=document.getElementById('exportJson');oldExport.addEventListener('click',persistCustom);
+form.addEventListener('input',persistCustom);
+// Preserve older inputs, while rehydrating locally stored custom AI additions.
+updateAll();
+
+// V7 Data Lifecycle custom entries, saved separately from the basic form draft.
+const DATA_CUSTOM_KEY = STORAGE_KEY + '-data-custom-v7';
+function dataCustomSnapshot(){
+  return Object.fromEntries(['visualization_tools','tunneling_tools'].map(group=>[group,
+    [...document.querySelectorAll(`.data-custom-added input[name="${group}"]`)].map(el=>({value:el.value,checked:el.checked}))]));
+}
+function saveDataCustom(){localStorage.setItem(DATA_CUSTOM_KEY,JSON.stringify(dataCustomSnapshot()));}
+function appendDataCustom(group,value,checked=true){
+  if(!value||!['visualization_tools','tunneling_tools'].includes(group))return;
+  const area=document.querySelector(`[data-data-custom-group="${group}"]`);if(!area)return;
+  const existing=[...document.querySelectorAll(`input[name="${group}"]`)].find(el=>el.value.toLowerCase()===value.toLowerCase());
+  if(existing){existing.checked=checked;updateAll();return;}
+  const wrap=document.createElement('label');wrap.className='check-row data-custom-added';
+  const checkbox=document.createElement('input');checkbox.type='checkbox';checkbox.name=group;checkbox.value=value;checkbox.checked=checked;
+  const mark=document.createElement('span');mark.className='fake-check';
+  const title=document.createElement('span');title.textContent=value;
+  const rm=document.createElement('button');rm.type='button';rm.textContent='×';rm.title='Remove option';rm.className='custom-remove';rm.style.cssText='margin-left:auto;background:transparent;border:0;color:#f39aa0;font-size:20px;cursor:pointer';
+  rm.addEventListener('click',()=>{wrap.remove();saveDataCustom();autoSave();updateAll();});
+  wrap.append(checkbox,mark,title,rm);area.before(wrap);
+  checkbox.addEventListener('change',()=>{saveDataCustom();autoSave();updateAll();});
+}
+let savedDataCustom={};try{savedDataCustom=JSON.parse(localStorage.getItem(DATA_CUSTOM_KEY)||'{}');}catch(e){}
+for(const [group,items] of Object.entries(savedDataCustom))if(Array.isArray(items))for(const item of items)appendDataCustom(group,item.value,item.checked);
+for(const btn of document.querySelectorAll('.data-custom-add'))btn.addEventListener('click',()=>{
+ const group=btn.dataset.group,inp=btn.parentElement.querySelector('input');const value=inp.value.trim();if(!value){inp.focus();return;}
+ appendDataCustom(group,value,true);inp.value='';saveDataCustom();autoSave();updateAll();showToast('Custom option added.');
+});
+for(const inp of document.querySelectorAll('.data-custom-row input'))inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();inp.parentElement.querySelector('button').click();}});
+form.addEventListener('change',saveDataCustom);
+updateAll();
+
+// V8 screenshot-based audit readiness, without modifying any CloudCamp data.
+function hasText(name){return !!form.querySelector(`[name="${name}"]`)?.value?.trim();}
+function isProvenanceComplete(){return ['provenance_data_sources','provenance_ai_models','provenance_responsible_ai'].every(hasText);}
+function isToolingComplete(){return ['ide_editor','deployment_method','frameworks_libraries'].every(hasText);}
+function refreshProvenance(){
+ const states={'data-provenance':isProvenanceComplete(),'tooling':isToolingComplete()};
+ document.querySelectorAll('[data-require-group]').forEach(card=>{const ok=states[card.dataset.requireGroup];card.classList.toggle('is-complete',ok);const badge=card.querySelector('.provenance-status');if(badge)badge.textContent=ok?'✓ Required — completed':'⚠ Required — missing';});
+ const warning=document.getElementById('proofWarning');if(warning){const missing=[];if(!isProvenanceComplete())missing.push('Data & AI Provenance');if(!isToolingComplete())missing.push('Tooling & IDE');if(!hasText('youtube_video'))missing.push('YouTube Video');if(!hasText('demo_live_links'))missing.push('Demo / Live Links');warning.hidden=missing.length===0;warning.querySelector('small').textContent=missing.length?'Missing: '+missing.join(', '):'';}
+ const empty=document.getElementById('promptEmpty'), count=document.getElementById('promptCount');const n=document.querySelectorAll('.prompt-entry').length;if(empty)empty.hidden=n>0;if(count)count.textContent=n;
+}
+form.addEventListener('input',refreshProvenance);form.addEventListener('change',refreshProvenance);
+document.getElementById('addPrompt')?.addEventListener('click',()=>setTimeout(refreshProvenance,0));
+const promptObserver=new MutationObserver(refreshProvenance);promptObserver.observe(document.getElementById('promptItems'),{childList:true});
+refreshProvenance();
+
+
+// V9: screenshot-based audit UI (local-only estimate).
+const V9_RUBRIC = [{"category": "Basics", "title": "Project name filled", "max": 1, "kind": "text", "field": "project_name", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Elevator pitch (≥20 chars)", "max": 2, "kind": "text", "field": "elevator_pitch", "threshold": 20, "values": null, "approx": false}, {"category": "Basics", "title": "Public summary (tiered length)", "max": 3, "kind": "text", "field": "public_summary", "threshold": 1, "values": null, "approx": true}, {"category": "Basics", "title": "Domain selected", "max": 1, "kind": "text", "field": "domain", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Challenge selected", "max": 1, "kind": "text", "field": "challenge", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Problem statement (tiered length)", "max": 10, "kind": "text", "field": "problem_statement", "threshold": 1, "values": null, "approx": true}, {"category": "Basics", "title": "Solution description (tiered length)", "max": 10, "kind": "text", "field": "solution_description", "threshold": 1, "values": null, "approx": true}, {"category": "Basics", "title": "Data lifecycle filled", "max": 5, "kind": "group_any", "field": "data_sources", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Graph DB used (Neo4j, ArangoDB, etc.)", "max": 5, "kind": "contains", "field": "storage_targets", "threshold": 1, "values": "Graph DB", "approx": false}, {"category": "Basics", "title": "Vector DB used (pgvector, Pinecone, etc.)", "max": 3, "kind": "contains", "field": "storage_targets", "threshold": 1, "values": "Vector DB", "approx": false}, {"category": "Basics", "title": "Lakehouse / Warehouse (Delta, Iceberg, BigQuery)", "max": 3, "kind": "contains_any", "field": "storage_targets", "threshold": 1, "values": ["Lakehouse", "Data Warehouse"], "approx": false}, {"category": "Basics", "title": "Multiple advanced scrapers / extractors (1 pt each)", "max": 4, "kind": "count", "field": "acquisition_methods", "threshold": 1, "values": null, "approx": true}, {"category": "Basics", "title": "Advanced parsing (parsers / formatters / cleaning detailed)", "max": 4, "kind": "field_count", "field": null, "threshold": 1, "values": ["parsers_used", "formatters_used", "cleaning_enrichment", "schema_validation"], "approx": false}, {"category": "Basics", "title": "Data source types selected (1 pt each, cap 5)", "max": 5, "kind": "count", "field": "data_sources", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Storage targets used (1 pt each, cap 4)", "max": 4, "kind": "count", "field": "storage_targets", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Formats handled (1 pt each, cap 4)", "max": 4, "kind": "count", "field": "formats", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Visualization tools (1 pt each, cap 3)", "max": 3, "kind": "count", "field": "visualization_tools", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "ML / analytics methods (1 pt each, cap 4)", "max": 4, "kind": "count", "field": "insight_methods", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Orchestration details (≥50 chars)", "max": 2, "kind": "text", "field": "orchestration", "threshold": 50, "values": null, "approx": false}, {"category": "Basics", "title": "Streaming / real-time details (≥50 chars)", "max": 2, "kind": "text", "field": "streaming", "threshold": 50, "values": null, "approx": false}, {"category": "Basics", "title": "Privacy & compliance notes (≥80 chars)", "max": 3, "kind": "text", "field": "privacy_compliance", "threshold": 80, "values": null, "approx": false}, {"category": "Basics", "title": "Lineage / observability notes (≥80 chars)", "max": 2, "kind": "text", "field": "lineage_observability", "threshold": 80, "values": null, "approx": false}, {"category": "Basics", "title": "Data quality measures (≥80 chars)", "max": 2, "kind": "text", "field": "data_quality", "threshold": 80, "values": null, "approx": false}, {"category": "Basics", "title": "Data sources selected", "max": 2, "kind": "group_any", "field": "data_sources", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Data source details", "max": 2, "kind": "text", "field": "data_sources_notes", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Acquisition methods selected", "max": 2, "kind": "group_any", "field": "acquisition_methods", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Acquisition details", "max": 2, "kind": "text", "field": "acquisition_details", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Scrapers / crawlers used", "max": 2, "kind": "text", "field": "scrapers_used", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "MCP servers for data access", "max": 2, "kind": "text", "field": "mcp_data_access", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Parsers used", "max": 2, "kind": "text", "field": "parsers_used", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Formatters / converters", "max": 1, "kind": "text", "field": "formatters_used", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Formats handled", "max": 2, "kind": "group_any", "field": "formats", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Data cleaning & enrichment", "max": 2, "kind": "text", "field": "cleaning_enrichment", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Schema validation", "max": 2, "kind": "text", "field": "schema_validation", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Storage targets selected", "max": 2, "kind": "group_any", "field": "storage_targets", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Storage details", "max": 2, "kind": "text", "field": "storage_notes", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Visualization tools", "max": 2, "kind": "group_any", "field": "visualization_tools", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Visualization details", "max": 1, "kind": "text", "field": "visualization_details", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Dashboards & reports", "max": 2, "kind": "text", "field": "dashboard_reports", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "ML methods selected", "max": 2, "kind": "group_any", "field": "insight_methods", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "AI / ML details", "max": 2, "kind": "text", "field": "aiml_details", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Non-AI analytics", "max": 2, "kind": "text", "field": "non_ai_analytics", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Insights delivery", "max": 2, "kind": "text", "field": "insight_delivery", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Orchestration", "max": 2, "kind": "text", "field": "orchestration", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Scheduling / triggers", "max": 1, "kind": "text", "field": "scheduling", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Streaming / real-time", "max": 2, "kind": "text", "field": "streaming", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Outbound APIs", "max": 2, "kind": "text", "field": "outbound_apis", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Webhooks & exports", "max": 1, "kind": "text", "field": "webhooks_exports", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Embeddings / model serving", "max": 2, "kind": "text", "field": "embedding_serving", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Open-source data stack", "max": 3, "kind": "text", "field": "data_open_source", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Data quality", "max": 2, "kind": "text", "field": "data_quality", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Privacy & compliance", "max": 2, "kind": "text", "field": "privacy_compliance", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Lineage & observability", "max": 2, "kind": "text", "field": "lineage_observability", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Cost & performance", "max": 2, "kind": "text", "field": "cost_performance", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Other data stack notes", "max": 1, "kind": "text", "field": "data_other", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Publish local environment to internet", "max": 4, "kind": "group_any", "field": "tunneling_tools", "threshold": 1, "values": null, "approx": false}, {"category": "Basics", "title": "Tunneling usage notes", "max": 2, "kind": "text", "field": "tunneling_notes", "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "≥1 LLM listed", "max": 5, "kind": "group_any", "field": "models_used", "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "Prompt strategy text (tiered)", "max": 5, "kind": "text", "field": "prompt_usage", "threshold": 1, "values": null, "approx": true}, {"category": "AI Detail Usage", "title": "Token optimization notes (≥50 chars)", "max": 3, "kind": "text", "field": "token_optimization", "threshold": 50, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "RAG techniques used (1 pt each, max 5)", "max": 5, "kind": "count", "field": "rag_methods", "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "Contextual RAG (Anthropic-style) bonus", "max": 5, "kind": "contains", "field": "rag_methods", "threshold": 1, "values": "Contextual RAG", "approx": false}, {"category": "AI Detail Usage", "title": "Variable / Semantic chunking bonus", "max": 3, "kind": "contains", "field": "rag_methods", "threshold": 1, "values": "Variable / Semantic", "approx": false}, {"category": "AI Detail Usage", "title": "Combo bonus: Contextual + Variable Chunking", "max": 3, "kind": "combo", "field": "rag_methods", "threshold": 1, "values": ["Contextual RAG", "Variable / Semantic"], "approx": false}, {"category": "AI Detail Usage", "title": "Graph RAG / Knowledge Graph bonus", "max": 5, "kind": "contains_any", "field": "rag_methods", "threshold": 1, "values": ["Graph RAG", "Knowledge Graph"], "approx": false}, {"category": "AI Detail Usage", "title": "Frontend AI / visual builders (1 pt each, max 5)", "max": 5, "kind": "count", "field": "frontend_ai_builders", "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "Workflow automation tools (1 pt each, max 4)", "max": 4, "kind": "count", "field": "workflow_automation", "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "n8n workflow automation bonus", "max": 2, "kind": "contains", "field": "workflow_automation", "threshold": 1, "values": "n8n", "approx": false}, {"category": "AI Detail Usage", "title": "Local LLM runtimes (1 pt each, max 3)", "max": 3, "kind": "count", "field": "local_runtimes", "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "Ollama runtime bonus", "max": 2, "kind": "contains", "field": "local_runtimes", "threshold": 1, "values": "Ollama", "approx": false}, {"category": "AI Detail Usage", "title": "Local models run (2 pts each, max 8)", "max": 8, "kind": "count2", "field": "local_models", "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "Token-optimization tools selected (1 pt each, cap 4)", "max": 4, "kind": "count", "field": "token_methods", "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "Agentic frameworks used (1 pt each, cap 5)", "max": 5, "kind": "count", "field": "agentic_frameworks", "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "AI-DLC frameworks adopted (1 pt each, cap 3)", "max": 3, "kind": "count", "field": "aidlc_frameworks", "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "AI-DLC process notes (≥100 chars)", "max": 3, "kind": "text", "field": "aidlc_process", "threshold": 100, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "Agent / orchestration notes (≥80 chars)", "max": 2, "kind": "text", "field": "agent_orchestration", "threshold": 80, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "Fine-tuning / adaptation described (≥80 chars)", "max": 2, "kind": "text", "field": "finetuning", "threshold": 80, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "Evaluation & quality methods (≥80 chars)", "max": 3, "kind": "text", "field": "evaluation", "threshold": 80, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "Guardrails / safety / privacy (≥80 chars)", "max": 3, "kind": "text", "field": "guardrails", "threshold": 80, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "MCP servers we built (1 pt each, cap 3)", "max": 3, "kind": "mcp_built_count", "field": null, "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "MCP servers we used (1 pt each, cap 3)", "max": 3, "kind": "mcp_used_count", "field": null, "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "Prompt usage", "max": 10, "kind": "text", "field": "prompt_usage", "threshold": 1, "values": null, "approx": true}, {"category": "AI Detail Usage", "title": "Token optimization", "max": 10, "kind": "text", "field": "token_optimization", "threshold": 1, "values": null, "approx": true}, {"category": "AI Detail Usage", "title": "LLMs / Models used", "max": 15, "kind": "count3", "field": "models_used", "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "Retrieval & RAG techniques", "max": 12, "kind": "count3", "field": "rag_methods", "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "Frontend / visual AI builders", "max": 5, "kind": "group_any", "field": "frontend_ai_builders", "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "Workflow / automation engines", "max": 5, "kind": "group_any", "field": "workflow_automation", "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "Local LLM runtimes", "max": 5, "kind": "group_any", "field": "local_runtimes", "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "Local / open-weight models", "max": 5, "kind": "group_any", "field": "local_models", "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "MCP transports used", "max": 2, "kind": "group_any", "field": "mcp_transports", "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "LLM usage commentary", "max": 5, "kind": "text", "field": "model_reason", "threshold": 1, "values": null, "approx": true}, {"category": "AI Detail Usage", "title": "RAG architecture details", "max": 5, "kind": "text", "field": "rag_architecture", "threshold": 1, "values": null, "approx": true}, {"category": "AI Detail Usage", "title": "MCP servers built (count)", "max": 10, "kind": "mcp_built_count", "field": null, "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "MCP servers used (count)", "max": 5, "kind": "mcp_used_count", "field": null, "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "MCP clients / hosts", "max": 2, "kind": "text", "field": "mcp_clients_hosts", "threshold": 1, "values": null, "approx": true}, {"category": "AI Detail Usage", "title": "MCP reuse / architecture notes", "max": 2, "kind": "text", "field": "mcp_reuse_notes", "threshold": 1, "values": null, "approx": true}, {"category": "AI Detail Usage", "title": "Open-source AI tools & libraries", "max": 3, "kind": "text", "field": "open_source_ai", "threshold": 1, "values": null, "approx": true}, {"category": "AI Detail Usage", "title": "Agent frameworks & orchestration", "max": 3, "kind": "text", "field": "agent_orchestration", "threshold": 1, "values": null, "approx": true}, {"category": "AI Detail Usage", "title": "Fine-tuning / adaptation", "max": 2, "kind": "text", "field": "finetuning", "threshold": 1, "values": null, "approx": true}, {"category": "AI Detail Usage", "title": "Evaluation & quality measurement", "max": 3, "kind": "text", "field": "evaluation", "threshold": 1, "values": null, "approx": true}, {"category": "AI Detail Usage", "title": "Guardrails, safety & privacy", "max": 3, "kind": "text", "field": "guardrails", "threshold": 1, "values": null, "approx": true}, {"category": "AI Detail Usage", "title": "Frontend AI / visual builder notes", "max": 2, "kind": "text", "field": "frontend_ai_notes", "threshold": 1, "values": null, "approx": true}, {"category": "AI Detail Usage", "title": "Workflow automation notes", "max": 2, "kind": "text", "field": "workflow_notes", "threshold": 1, "values": null, "approx": true}, {"category": "AI Detail Usage", "title": "Local LLM hardware / quantization notes", "max": 2, "kind": "text", "field": "local_hardware", "threshold": 1, "values": null, "approx": true}, {"category": "AI Detail Usage", "title": "Other AI notes", "max": 1, "kind": "text", "field": "ai_other", "threshold": 1, "values": null, "approx": true}, {"category": "AI Detail Usage", "title": "Token optimization tools & methods", "max": 6, "kind": "group_any", "field": "token_methods", "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "Agentic frameworks used", "max": 6, "kind": "group_any", "field": "agentic_frameworks", "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "AI Development Lifecycle (AI-DLC) frameworks", "max": 8, "kind": "group_any", "field": "aidlc_frameworks", "threshold": 1, "values": null, "approx": false}, {"category": "AI Detail Usage", "title": "AI-DLC process notes", "max": 4, "kind": "text", "field": "aidlc_process", "threshold": 1, "values": null, "approx": true}, {"category": "Links", "title": "YouTube video (valid YouTube URL)", "max": 10, "kind": "link", "field": "youtube_video", "threshold": 1, "values": null, "approx": false}, {"category": "Links", "title": "GitHub repo (valid GitHub URL)", "max": 2, "kind": "link", "field": "github_repository", "threshold": 1, "values": null, "approx": false}, {"category": "Links", "title": "Live demo link (valid URL)", "max": 1, "kind": "link", "field": "demo_live_links", "threshold": 1, "values": null, "approx": false}, {"category": "Links", "title": "Figma / design link (valid URL)", "max": 1, "kind": "link", "field": "figma_design", "threshold": 1, "values": null, "approx": false}, {"category": "Links", "title": "Other links (1 pt each, max 3)", "max": 3, "kind": "links_count", "field": "other_links", "threshold": 1, "values": null, "approx": false}, {"category": "Build Provenance", "title": "Tooling / IDE listed", "max": 3, "kind": "text", "field": "ide_editor", "threshold": 1, "values": null, "approx": false}, {"category": "Build Provenance", "title": "MCP usage disclosed", "max": 2, "kind": "text", "field": "mcp_servers_list", "threshold": 1, "values": null, "approx": false}, {"category": "Build Provenance", "title": "≥1 prompt in prompt library", "max": 5, "kind": "prompts", "field": null, "threshold": 1, "values": null, "approx": false}, {"category": "Build Provenance", "title": "IDE / editor", "max": 1, "kind": "text", "field": "ide_editor", "threshold": 1, "values": null, "approx": false}, {"category": "Build Provenance", "title": "Frameworks & libraries", "max": 1, "kind": "text", "field": "frameworks_libraries", "threshold": 1, "values": null, "approx": false}, {"category": "Build Provenance", "title": "Deployment method", "max": 1, "kind": "text", "field": "deployment_method", "threshold": 1, "values": null, "approx": false}, {"category": "Build Provenance", "title": "Context / memory files", "max": 2, "kind": "text", "field": "context_memory_files", "threshold": 1, "values": null, "approx": false}, {"category": "Build Provenance", "title": "MCP servers list", "max": 2, "kind": "text", "field": "mcp_servers_list", "threshold": 1, "values": null, "approx": false}, {"category": "Build Provenance", "title": "MCP tools exposed", "max": 2, "kind": "text", "field": "mcp_tools_exposed", "threshold": 1, "values": null, "approx": false}, {"category": "Build Provenance", "title": "MCP permissions", "max": 1, "kind": "text", "field": "mcp_permissions", "threshold": 1, "values": null, "approx": false}, {"category": "Team", "title": "Team members (1 pt each, cap 5)", "max": 5, "kind": "team_members", "field": null, "threshold": 1, "values": null, "approx": false}, {"category": "Team", "title": "≥1 NRB member (country ≠ Bangladesh, or marker)", "max": 1, "kind": "team_flag", "field": null, "threshold": 1, "values": "nrb", "approx": false}, {"category": "Team", "title": "≥1 female member (profile gender, or marker)", "max": 1, "kind": "team_flag", "field": null, "threshold": 1, "values": "female", "approx": false}];
+const V9_CATS = ['Basics','AI Detail Usage','Links','Build Provenance','Team'];
+const V9_CAPS = {'Basics':149,'AI Detail Usage':232,'Links':17,'Build Provenance':20,'Team':7};
+const v9Clean = s => String(s||'').trim();
+const v9Text = name => v9Clean(form.querySelector(`[name="${name}"]`)?.value);
+const v9Choices = name => [...form.querySelectorAll(`input[name="${name}"]:checked`)].map(i=>i.value);
+const v9Links = name => [...form.querySelectorAll(`input[type="url"][name^="${name}"]`)].filter(i=>{try{const u=new URL(i.value);return ['https:','http:'].includes(u.protocol);}catch{return false;}}).length;
+const v9CountItems = name => v9Text(name).split(/[\n,;]/).filter(s=>s.trim()).length;
+function v9Criterion(r){
+ const count=v9Choices(r.field).length;
+ let points=0,detail='';
+ switch(r.kind){
+ case 'text':{const len=v9Text(r.field).length;points=len>=r.threshold?r.max:0;detail=len?`${len} chars`:'Empty';break;}
+ case 'count':points=Math.min(r.max,count);detail=`${count} selected`;break;
+ case 'count2':points=Math.min(r.max,count*2);detail=`${count} selected`;break;
+ case 'count3':points=Math.min(r.max,count*3);detail=`${count} selected`;break;
+ case 'group_any':points=count?r.max:0;detail=`${count} selected`;break;
+ case 'contains':points=v9Choices(r.field).some(v=>v.toLowerCase().includes((r.values||'').toLowerCase()))?r.max:0;detail=points?'Selected':'Not selected';break;
+ case 'contains_any':points=v9Choices(r.field).some(v=>(r.values||[]).some(key=>v.toLowerCase().includes(key.toLowerCase())))?r.max:0;detail=points?'Selected':'Not selected';break;
+ case 'combo':points=(r.values||[]).every(key=>v9Choices(r.field).some(v=>v.toLowerCase().includes(key.toLowerCase())))?r.max:0;detail=points?'Both selected':'Need both';break;
+ case 'field_count':points=Math.min(r.max,(r.values||[]).filter(v=>v9Text(v).length).length);detail=`${points}/${r.max} fields`;break;
+ case 'link':points=v9Links(r.field)?r.max:0;detail=points?'Link entered':'No link';break;
+ case 'links_count':points=Math.min(r.max,v9Links(r.field));detail=`${v9Links(r.field)} links`;break;
+ case 'prompts':points=document.querySelectorAll('.prompt-entry').length?r.max:0;detail=`${document.querySelectorAll('.prompt-entry').length} prompts`;break;
+ case 'mcp_built_count':case 'mcp_used_count':points=0;detail='Unverified inventory / count';break;
+ case 'team_members':{const s=v9Text('team_members');const c=s?s.split(/\n/).filter(x=>x.trim()).length:1;points=Math.min(r.max,c);detail=`${c} member(s) — local estimate`;break;}
+ case 'team_flag':points=0;detail='Requires verified member profile';break;
+ default:break;
+ }
+ return {points,detail};
+}
+function v9RenderAudit(){
+ const data=V9_RUBRIC.map(r=>({...r,...v9Criterion(r)}));
+ const by=Object.fromEntries(V9_CATS.map(cat=>[cat,data.filter(r=>r.category===cat)]));
+ const values=Object.fromEntries(V9_CATS.map(cat=>[cat,Math.min(V9_CAPS[cat],by[cat].reduce((n,r)=>n+r.points,0))]));
+ const total=Object.values(values).reduce((n,v)=>n+v,0),pct=Math.round(total/425*100);
+ for(const [id,value] of [['auditTotal',total],['overviewAuditTotal',total],['auditPercent',pct+'%']]){const el=document.getElementById(id);if(el)el.textContent=value;}
+ document.getElementById('auditBar').style.width=pct+'%';
+ document.getElementById('overviewScoreTiles').innerHTML=V9_CATS.map(cat=>`<div class="score-ref"><span>${cat}</span><strong>${values[cat]}<small>/${V9_CAPS[cat]}</small></strong></div>`).join('');
+ document.getElementById('rubricCategories').innerHTML=V9_CATS.map(cat=>`<a href="#rubric-${cat.replace(/\s/g,'-')}">${cat} <b>${values[cat]}/${V9_CAPS[cat]}</b></a>`).join('');
+ const term=document.getElementById('rubricSearch').value.trim().toLowerCase(),incomplete=document.getElementById('rubricIncomplete').checked;
+ const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+ document.getElementById('rubricChecklist').innerHTML=V9_CATS.map(cat=>{
+ const rows=by[cat].filter(r=>(!term||r.title.toLowerCase().includes(term))&&(!incomplete||r.points<r.max));
+ if(!rows.length)return '';
+ return `<div class="rubric-section" id="rubric-${cat.replace(/\s/g,'-')}"><div class="rubric-section-title"><h3>${cat}</h3><span>${values[cat]}/${V9_CAPS[cat]}</span></div>${rows.map(r=>`<div class="rubric-row"><span class="rubric-mark ${r.points>=r.max?'complete':''}">${r.points>=r.max?'✓':'○'}</span><span class="rubric-label">${esc(r.title)}${r.approx?'<sup title="Estimate: official tiering unavailable"> ≈</sup>':''}</span><span class="rubric-hint">${esc(r.detail)}</span><strong class="rubric-points">${r.points}/${r.max}</strong></div>`).join('')}</div>`;
+ }).join('');
+ const groups=[
+ ['Project information',['project_name','elevator_pitch','public_summary','problem_statement','solution_description']],
+ ['Data & AI Provenance',['provenance_data_sources','provenance_ai_models','provenance_responsible_ai']],
+ ['Tooling & IDE',['ide_editor','deployment_method','frameworks_libraries']],
+ ['YouTube Video',['youtube_video']],['Demo / Live Links',['demo_live_links']]
+ ];
+ // UI shows 5/9 required in the initial screenshot; nine is reproduced as the count of individual baseline mandatory items.
+ const basicRequired=['project_name','elevator_pitch','public_summary','problem_statement','solution_description'];
+ const passed=basicRequired.filter(v=>v9Text(v).length).length + Number(isProvenanceComplete()) + Number(isToolingComplete()) + Number(v9Links('youtube_video')>0) + Number(v9Links('demo_live_links')>0);
+ document.getElementById('requiredFraction').textContent=`${passed}/9 required · ${Math.round(passed/9*100)}%`;
+ document.getElementById('requiredBar').style.width=`${passed/9*100}%`;
+}
+document.getElementById('rubricSearch').addEventListener('input',v9RenderAudit);
+document.getElementById('rubricIncomplete').addEventListener('change',v9RenderAudit);
+form.addEventListener('input',v9RenderAudit);form.addEventListener('change',v9RenderAudit);
+document.getElementById('addPrompt')?.addEventListener('click',()=>setTimeout(v9RenderAudit,10));
+new MutationObserver(()=>v9RenderAudit()).observe(document.getElementById('promptItems'),{childList:true});
+for(const link of document.querySelectorAll('.form-tabs a'))link.addEventListener('click',()=>{
+ document.querySelectorAll('.form-tabs a').forEach(a=>a.classList.toggle('active',a===link));
+});
+v9RenderAudit();
+
+</script>
+</body>
+</html>
